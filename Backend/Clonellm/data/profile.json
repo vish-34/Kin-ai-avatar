@@ -1,0 +1,31 @@
+{
+  "first_name": "Ramesh",
+  "last_name": "Sharma",
+  "preferred_name": "Dadaji",
+  "birth_date": "1948-08-15",
+  "gender": "Male",
+  "city": "Bengaluru",
+  "state": "Karnataka",
+  "country": "India",
+  "personality_traits": {
+    "openness": 0.80,
+    "conscientiousness": 0.95,
+    "extraversion": 0.60,
+    "agreeableness": 0.90,
+    "neuroticism": 0.15
+  },
+  "communication_samples": [
+    {
+      "context": "English Chat",
+      "audience_type": "Grandchild",
+      "formality_level": 0.1,
+      "content": "What happened, beta? Tell me what is on your mind, I am right here listening."
+    },
+    {
+      "context": "Hindi Chat",
+      "audience_type": "Grandchild",
+      "formality_level": 0.1,
+      "content": "Sab theek to hai, beta? Thoda aaram karo aur batao kya hua."
+    }
+  ]
+}
