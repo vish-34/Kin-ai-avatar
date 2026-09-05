@@ -10,7 +10,7 @@ const navItems = [
   { name: 'FAQs', href: '#faqs', id: 'faqs' },
 ];
 
-export default function Navbar({ onOpenCreateModal }) {
+export default function Navbar({ onOpenCreateModal, onOpenVault }) {
   const [activeTab, setActiveTab] = useState('How It Works');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -169,6 +169,18 @@ export default function Navbar({ onOpenCreateModal }) {
 
           {/* Right CTA */}
           <div className="navbar-actions">
+            {onOpenVault && (
+              <motion.button
+                whileHover={{ scale: 1.03, y: -1 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={onOpenVault}
+                className="navbar-vault-btn"
+                title="View your saved avatars"
+              >
+                <span>Family Vault</span>
+              </motion.button>
+            )}
+
             <motion.button 
               whileHover={{ scale: 1.03, y: -1 }}
               whileTap={{ scale: 0.98 }}
@@ -211,6 +223,17 @@ export default function Navbar({ onOpenCreateModal }) {
                     {activeTab === item.name && <span className="mobile-active-dot" />}
                   </a>
                 ))}
+                {onOpenVault && (
+                  <button
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      onOpenVault();
+                    }}
+                    className="navbar-vault-btn mobile-vault-btn"
+                  >
+                    <span>Family Vault</span>
+                  </button>
+                )}
                 <button 
                   onClick={() => {
                     setMobileMenuOpen(false);

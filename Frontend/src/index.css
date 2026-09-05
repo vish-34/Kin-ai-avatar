@@ -60,6 +60,11 @@ html {
   scroll-behavior: smooth !important;
 }
 
+html:has(body.studio-mode-active),
+body.studio-mode-active {
+  scroll-behavior: auto !important;
+}
+
 html, body {
   width: 100%;
   min-height: 100vh;
