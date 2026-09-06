@@ -10,7 +10,7 @@ const personas = [
     status: 'Persona Active • Voice Cloned from 8 WhatsApp Audios',
     avatarInitials: 'GT',
     photoBg: 'linear-gradient(135deg, #27272a 0%, #09090b 100%)',
-    avatarImg: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&auto=format&fit=crop&q=80', // Dignified elder portrait
+    avatarImg: '/grandfather.jpg', // Dignified elder portrait
     personality: 'Pragmatic, gentle dry humor, mechanical wisdom, stoic optimism',
     contextSources: ['14 WhatsApp Voice Notes', '320 Chat Messages', 'Family Recipe Notes'],
     sampleQuestions: [
@@ -32,7 +32,7 @@ const personas = [
     status: 'Persona Active • Voice Cloned from 12 Voice Notes',
     avatarInitials: 'MM',
     photoBg: 'linear-gradient(135deg, #3f3f46 0%, #18181b 100%)',
-    avatarImg: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&auto=format&fit=crop&q=80',
+    avatarImg: '/grandmother.jpg',
     personality: 'Warm, highly empathetic, reassuring, loved garden metaphors & tea',
     contextSources: ['12 Voice Memos', '580 WhatsApp Chats', 'Personal Journal Excerpts'],
     sampleQuestions: [

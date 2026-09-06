@@ -164,8 +164,7 @@ export default function CreateAvatarPage({ onBackToHome, onNavigateToVault, onAv
       audioFileName: 'Dadaji_Sunday_Voicemail_1998.wav',
       audioDuration: '1:14',
       voiceTimbreAnalyzed: true,
-      photoPreviewUrl:
-        'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80',
+      photoPreviewUrl: '/grandfather.jpg',
     }));
   };
 
@@ -284,8 +283,9 @@ export default function CreateAvatarPage({ onBackToHome, onNavigateToVault, onAv
         lifespan: formData.lifespan || '',
         hometown: formData.hometown || '',
         photoUrl:
-          formData.photoPreviewUrl ||
-          'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80',
+          formData.photoPreviewUrl && !formData.photoPreviewUrl.includes('unsplash.com')
+            ? formData.photoPreviewUrl
+            : '/grandfather.jpg',
         catchphrases:
           formData.catchphrases && formData.catchphrases.length > 0
             ? formData.catchphrases
@@ -1359,8 +1359,7 @@ export default function CreateAvatarPage({ onBackToHome, onNavigateToVault, onAv
                   onClick={() =>
                     setFormData((prev) => ({
                       ...prev,
-                      photoPreviewUrl:
-                        'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80',
+                      photoPreviewUrl: '/grandfather.jpg',
                     }))
                   }
                   className="sample-photo-btn"

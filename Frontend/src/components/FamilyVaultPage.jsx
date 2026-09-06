@@ -224,8 +224,9 @@ export default function FamilyVaultPage({
                   <div className="avatar-card-image-wrap">
                     <img
                       src={
-                        avatar.photoUrl ||
-                        'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80'
+                        avatar.photoUrl && !avatar.photoUrl.includes('unsplash.com')
+                          ? avatar.photoUrl
+                          : '/grandfather.jpg'
                       }
                       alt={avatar.name}
                       className="avatar-card-img"

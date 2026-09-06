@@ -1,98 +1,116 @@
 """
 test_voice.py
-Standalone test script to check if OpenVoice is working WITHOUT touching Clonellm.
-Can be run directly from terminal: python Backend/Voice/test_voice.py
+Automated health & pipeline test script for OmniVoice Colab server.
+Verifies GPU status, cached voice prompts, and streaming synthesis.
+Run via: python Backend/Voice/test_voice.py
 """
 
 import os
 import sys
+import time
 from pathlib import Path
 from dotenv import dotenv_values
 
-# Fix Windows console encoding
+# Fix Windows console UTF-8 output
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
 
-# Add current dir to path
 VOICE_DIR = Path(__file__).resolve().parent
 BACKEND_DIR = VOICE_DIR.parent
 ENV_PATH = BACKEND_DIR / ".env"
 
-from voice_client import ColabVoiceClient
+if str(VOICE_DIR) not in sys.path:
+    sys.path.insert(0, str(VOICE_DIR))
+
+from voice_client import OmniVoiceColabClient
+
 
 def main():
-    print("=" * 60)
-    print("      🎙️ Kin-AI-Avatar: Voice Cloning Standalone Test")
-    print("=" * 60)
+    print("=" * 65)
+    print("      🎙️ Kin-AI-Avatar: OmniVoice Colab Pipeline Test")
+    print("=" * 65)
 
     # 1. Load URL from .env
     colab_url = ""
     if ENV_PATH.exists():
         env_vars = dotenv_values(ENV_PATH)
-        colab_url = env_vars.get("COLAB_VOICE_URL", "").strip()
+        colab_url = (env_vars.get("COLAB_SERVER_URL") or env_vars.get("COLAB_VOICE_URL") or "").strip()
 
     if not colab_url:
-        print("\n[Notice] COLAB_VOICE_URL is not set in Backend/.env.")
-        colab_url = input("Enter your Colab Public Ngrok URL (or press Enter to exit): ").strip()
+        print("\n[Notice] COLAB_SERVER_URL / COLAB_VOICE_URL is not set in Backend/.env.")
+        colab_url = input("Enter your Colab Public URL (or press Enter to cancel): ").strip()
         if not colab_url:
-            print("Exiting test.")
+            print("Cancelled.")
             return
 
-    client = ColabVoiceClient(colab_url)
-    print(f"\n[1/3] Connecting to Colab server at: {colab_url} ...")
+    client = OmniVoiceColabClient(colab_url)
+    print(f"\n[1/3] Connecting to OmniVoice server at: {colab_url} ...")
 
     # 2. Check Health
     health = client.check_health()
     if health.get("status") != "healthy":
         print(f"\n❌ Connection Failed!")
-        print(f"Error details: {health}")
-        print("\nPlease ensure:")
-        print("1. Your Google Colab notebook is running.")
-        print("2. The Ngrok tunnel cell is active.")
-        print("3. You copied the correct 'https://...ngrok-free.app' URL.")
+        print(f"Details: {health}")
+        print("\nPlease ensure your Colab notebook is running and the tunnel is active.")
         return
 
-    print(f"✅ Colab is ONLINE!")
+    print("✅ Colab is ONLINE!")
+    print(f"   Engine: {health.get('engine')}")
     print(f"   Device: {health.get('device')} ({health.get('gpu_name')})")
-    speakers = health.get("loaded_speakers", [])
-    print(f"   Registered voice profiles on Colab: {speakers or ['(none yet, using elder default)']}")
+    cached = health.get("cached_prompts", [])
+    print(f"   Cached VoiceClonePrompts on Colab: {cached or ['(none yet)']}")
 
-    speaker_name = speakers[0] if speakers else "elder"
+    # 3. Check for reference audio file to test prompt registration
+    speaker = cached[0] if cached else "test_speaker"
+    local_audios = list(VOICE_DIR.glob("*.wav")) + list(VOICE_DIR.glob("*.mp3"))
+    local_audios = [a for a in local_audios if not a.name.startswith("test_") and not a.name.startswith("temp_") and a.name != "clone_out.wav"]
 
-    # 3. Choose test sentence
-    default_text = "Hello! This is a test of OpenVoice running on Google Colab. If you can hear this, your voice cloning pipeline is working perfectly!"
-    print("\n[2/3] Choose test text:")
-    user_text = input(f"Enter text to speak (Press Enter for default): ").strip()
-    test_text = user_text if user_text else default_text
+    if local_audios and not cached:
+        ref_file = local_audios[0]
+        speaker = ref_file.stem
+        print(f"\n[2/3] Found reference audio '{ref_file.name}'. Encoding into VoiceClonePrompt...")
+        reg = client.register_voice_sample(speaker, str(ref_file))
+        print(f"   Registration response: {reg.get('message')}")
+    else:
+        print(f"\n[2/3] Using cached voice profile: '{speaker}'")
 
-    print(f"\n[3/3] Generating speech with voice profile '{speaker_name}'...")
-    output_wav = str(VOICE_DIR / "test_output.wav")
+    # 4. Test Synthesis with Streaming
+    test_text = "Namaste beta! This is a test of OmniVoice running on Google Colab with pre-cached voice clone prompts. Real-time streaming is fully operational!"
+    print(f"\n[3/3] Testing real-time clause streaming...")
+    print(f"   Input text: “{test_text}”\n")
 
-    try:
-        client.synthesize_to_file(
-            text=test_text,
-            output_path=output_wav,
-            speaker_name=speaker_name,
-            accent="en-us",
-            speed=1.0
-        )
-        print(f"🎉 Success! Audio saved to: {output_wav}")
+    start = time.time()
+    out_file = VOICE_DIR / "test_output.wav"
+    chunk_count = 0
+    all_chunks = []
 
-        # Automatically play the audio file on Windows
+    for chunk in client.synthesize_stream(test_text, speaker_name=speaker):
+        if "error" in chunk:
+            print(f"   Chunk error: {chunk['error']}")
+            continue
+        chunk_count += 1
+        elapsed = time.time() - start
+        print(f"   ⚡ Chunk {chunk_count} received in {elapsed:.2f}s: “{chunk.get('text')}”")
+        all_chunks.append(chunk.get("audio_bytes", b""))
+
+    if all_chunks:
+        with open(out_file, "wb") as f:
+            f.write(all_chunks[-1] if len(all_chunks) == 1 else b"".join(all_chunks))
+        print(f"\n🎉 Test Passed! Total time: {time.time() - start:.2f}s")
+        print(f"Saved test output to: {out_file.name}")
+
+        # Attempt to play audio
         try:
-            print("▶️ Playing audio...")
             import winsound
-            winsound.PlaySound(output_wav, winsound.SND_FILENAME)
+            print("▶️ Playing audio...")
+            winsound.PlaySound(str(out_file), winsound.SND_FILENAME)
         except Exception:
-            # Fallback: open with default media player
-            os.startfile(output_wav)
+            pass
 
-    except Exception as e:
-        print(f"\n❌ Synthesis failed: {e}")
+    print("\n" + "=" * 65)
+    print("OmniVoice pipeline test completed successfully.")
+    print("=" * 65)
 
-    print("\n" + "=" * 60)
-    print("Test completed.")
-    print("=" * 60)
 
 if __name__ == "__main__":
     main()

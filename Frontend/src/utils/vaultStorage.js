@@ -10,7 +10,7 @@ export const defaultVaultAvatars = [
     relation: 'Grandfather',
     lifespan: '1948 – 2023',
     hometown: 'Bengaluru, India',
-    photoUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80',
+    photoUrl: '/grandfather.jpg',
     catchphrases: ['Sab theek ho jayega, beta', 'Take things one step at a time', 'Never go to sleep angry'],
     personalitySummary: 'A deeply calm, philosophical soul who worked in precision tooling and gave gentle advice using gardening metaphors.',
     contextSourcesSummary: '1,420 WhatsApp Chats • 2 Documents • Voice Cloned',
@@ -29,7 +29,7 @@ export const defaultVaultAvatars = [
     relation: 'Mother',
     lifespan: '1954 – 2021',
     hometown: 'Jaipur, India',
-    photoUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=80',
+    photoUrl: '/grandmother.jpg',
     catchphrases: ['Drink some warm ginger water', 'I am always proud of you', 'Your kindness is your strength'],
     personalitySummary: 'Warm, highly empathetic, loved evening tea rituals and encouraging everyone to stay curious.',
     contextSourcesSummary: '840 WhatsApp Chats • 12 Voice Notes',
@@ -51,7 +51,37 @@ export function getVaultAvatars() {
       return defaultVaultAvatars;
     }
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) && parsed.length > 0 ? parsed : defaultVaultAvatars;
+    if (!Array.isArray(parsed) || parsed.length === 0) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultVaultAvatars));
+      return defaultVaultAvatars;
+    }
+    // Auto-migrate legacy avatars with mock Unsplash photos to authentic assets
+    let updated = false;
+    const sanitized = parsed.map((item) => {
+      if (!item.photoUrl || item.photoUrl.includes('unsplash.com')) {
+        updated = true;
+        if (
+          item.id === 'ramesh-dadaji' ||
+          (item.name && item.name.includes('Ramesh')) ||
+          item.relation === 'Grandfather'
+        ) {
+          return { ...item, photoUrl: '/grandfather.jpg' };
+        } else if (
+          item.id === 'maya-mother' ||
+          (item.name && item.name.includes('Maya')) ||
+          item.relation === 'Mother'
+        ) {
+          return { ...item, photoUrl: '/grandmother.jpg' };
+        } else {
+          return { ...item, photoUrl: '/grandfather.jpg' };
+        }
+      }
+      return item;
+    });
+    if (updated) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitized));
+    }
+    return sanitized;
   } catch {
     return defaultVaultAvatars;
   }
