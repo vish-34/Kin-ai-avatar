@@ -23,6 +23,7 @@ import {
   Paperclip
 } from 'lucide-react';
 import { saveAvatarToVault } from '../utils/vaultStorage';
+import { createAvatarOnBackend } from '../services/api';
 import './CreateAvatarPage.css';
 
 export default function CreateAvatarPage({ onBackToHome, onNavigateToVault, onAvatarCreated }) {
@@ -251,41 +252,92 @@ export default function CreateAvatarPage({ onBackToHome, onNavigateToVault, onAv
   };
 
   // Trigger Neural Persona Synthesis Pipeline (transition to Step 5)
-  const startSynthesis = () => {
+  const startSynthesis = async () => {
     setIsSynthesizing(true);
     setSynthesisStage(1);
-    setSynthesisProgress(15);
+    setSynthesisProgress(20);
 
-    setTimeout(() => {
+    try {
+      // 1. Prepare FormData for Backend API
+      const apiData = new FormData();
+      const rawSlug = (formData.name || formData.callingName || 'avatar')
+        .toLowerCase()
+        .replace(/[^a-z0-9_-]/g, '_');
+      const personaId = `${rawSlug}_${Date.now().toString().slice(-4)}`;
+
+      apiData.append('avatar_id', personaId);
+      apiData.append('name', formData.name);
+      apiData.append('calling_name', formData.callingName || formData.name.split(' ')[0]);
+      apiData.append('relation', formData.relation || 'Loved One');
+      apiData.append('lifespan', formData.lifespan || '');
+      apiData.append('hometown', formData.hometown || '');
+      apiData.append('personality_summary', formData.personalitySummary || '');
+      apiData.append('catchphrases', JSON.stringify(formData.catchphrases || []));
+
+      // Aggregate notes, core memories, and document summaries
+      const combinedNotes = [
+        formData.writtenContextNotes || '',
+        formData.coreMemories ? `Core Memories: ${formData.coreMemories}` : '',
+      ].filter(Boolean).join('\n\n');
+      apiData.append('written_notes', combinedNotes);
+
+      // Attach Photo if available
+      if (formData.photoFile) {
+        apiData.append('photo', formData.photoFile);
+      }
+
+      // Attach Audio if available
+      if (formData.audioFile) {
+        apiData.append('voice', formData.audioFile);
+      }
+
+      // Stage 1: Reading memories & documents
+      setSynthesisStage(1);
+      setSynthesisProgress(25);
+      await new Promise((r) => setTimeout(r, 400));
+
+      // Stage 2: Submitting voice to OmniVoice & photo to MuseTalk on GPU
       setSynthesisStage(2);
-      setSynthesisProgress(45);
-    }, 1200);
+      setSynthesisProgress(50);
 
-    setTimeout(() => {
+      // Call Backend to process, register voice & face on Colab/Kaggle, and build RAG memories
+      let backendAvatar = null;
+      let createRes = null;
+      try {
+        createRes = await createAvatarOnBackend(apiData);
+        if (createRes && createRes.avatar) {
+          backendAvatar = createRes.avatar;
+        }
+      } catch (backendErr) {
+        console.warn('[Backend Persona API Notice, continuing with vault storage]:', backendErr);
+      }
+
+      // Stage 3: Rigging facial mesh & MuseTalk caching
       setSynthesisStage(3);
       setSynthesisProgress(75);
-    }, 2400);
+      await new Promise((r) => setTimeout(r, 500));
 
-    setTimeout(() => {
+      // Stage 4: Finalizing CloneLLM Engine & Memory Vault
       setSynthesisStage(4);
       setSynthesisProgress(100);
-    }, 3600);
+      await new Promise((r) => setTimeout(r, 400));
 
-    setTimeout(() => {
       const avatarName = formData.callingName || formData.name || 'Your Loved One';
+      const resolvedId = backendAvatar?.id || personaId;
+      const resolvedPhoto = backendAvatar?.photoUrl || (formData.photoPreviewUrl && !formData.photoPreviewUrl.includes('unsplash.com') ? formData.photoPreviewUrl : '/grandfather.jpg');
+      const isVoiceCloned = Boolean(createRes?.voice_registered || backendAvatar?.voiceTrained);
+      const isFaceRegistered = Boolean(createRes?.face_registered || backendAvatar?.faceRegistered);
 
       // Construct newly created avatar record
       const newAvatar = {
-        id: 'avatar-' + Date.now(),
+        id: resolvedId,
         name: formData.name,
         callingName: formData.callingName || formData.name.split(' ')[0],
         relation: formData.relation || 'Loved One',
         lifespan: formData.lifespan || '',
         hometown: formData.hometown || '',
-        photoUrl:
-          formData.photoPreviewUrl && !formData.photoPreviewUrl.includes('unsplash.com')
-            ? formData.photoPreviewUrl
-            : '/grandfather.jpg',
+        photoUrl: resolvedPhoto,
+        talkingVideoUrl: backendAvatar?.talkingVideoUrl || `/avatars/${resolvedId}_talking.mp4`,
         catchphrases:
           formData.catchphrases && formData.catchphrases.length > 0
             ? formData.catchphrases
@@ -297,10 +349,11 @@ export default function CreateAvatarPage({ onBackToHome, onNavigateToVault, onAv
           formData.whatsappMessagesCount ? `${formData.whatsappMessagesCount} WhatsApp Chats` : null,
           formData.contextDocuments.length > 0 ? `${formData.contextDocuments.length} Documents` : null,
           formData.writtenContextNotes.trim() ? 'Handwritten Notes' : null,
-          formData.audioFileName ? 'Voice Cloned' : null,
+          formData.audioFileName || formData.audioFile ? 'Voice Cloned (OmniVoice)' : null,
         ].filter(Boolean).join(' • ') || 'Family Memory Vault',
         createdAt: 'Just now',
-        voiceTrained: true,
+        voiceTrained: isVoiceCloned,
+        faceRegistered: isFaceRegistered,
         sampleQuestions: [
           `“${avatarName}, what advice would you give me today?”`,
           `“Tell me a story from your youth.”`,
@@ -317,7 +370,11 @@ export default function CreateAvatarPage({ onBackToHome, onNavigateToVault, onAv
       } else if (onNavigateToVault) {
         onNavigateToVault(newAvatar.name);
       }
-    }, 4500);
+    } catch (err) {
+      console.error('[Synthesis Error]:', err);
+      setIsSynthesizing(false);
+      alert(`Could not synthesize persona: ${err.message}`);
+    }
   };
 
   const stepsList = [
@@ -431,11 +488,11 @@ export default function CreateAvatarPage({ onBackToHome, onNavigateToVault, onAv
                   </div>
                   <div className={`stage-row ${synthesisStage >= 2 ? 'active' : ''}`}>
                     <CheckCircle2 size={15} className="stage-icon" />
-                    <span>Extracting acoustic timbre & pitch embeddings for voice cloning...</span>
+                    <span>Submitting voice sample to OmniVoice GPU & caching clone prompt (.pt)...</span>
                   </div>
                   <div className={`stage-row ${synthesisStage >= 3 ? 'active' : ''}`}>
                     <CheckCircle2 size={15} className="stage-icon" />
-                    <span>Rigging portrait facial mesh and expressive gaze anchors...</span>
+                    <span>Uploading portrait to MuseTalk GPU & caching inpainting face latents...</span>
                   </div>
                   <div className={`stage-row ${synthesisStage >= 4 ? 'active' : ''}`}>
                     <CheckCircle2 size={15} className="stage-icon" />

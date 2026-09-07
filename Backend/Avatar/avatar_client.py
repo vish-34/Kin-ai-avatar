@@ -28,9 +28,8 @@ if sys.platform == "win32":
     except Exception:
         pass
 
-# Load environment variables from Backend/.env if available
 try:
-    from dotenv import load_dotenv
+    from dotenv import load_dotenv, dotenv_values
     env_path = Path(__file__).resolve().parent.parent / ".env"
     if env_path.exists():
         load_dotenv(dotenv_path=env_path)
@@ -41,17 +40,39 @@ except ImportError:
 class MuseTalkAvatarClient:
     def __init__(self, colab_url: Optional[str] = None):
         """
-        :param colab_url: Public URL from your Google Colab notebook (Cloudflare or ngrok tunnel).
+        :param colab_url: Public URL from your Google Colab or Kaggle notebook (Cloudflare or ngrok tunnel).
         """
-        raw_url = colab_url or os.getenv("COLAB_SERVER_URL", "") or os.getenv("COLAB_AVATAR_URL", "")
-        self.colab_url = raw_url.strip().rstrip("/")
-        # Critical headers to bypass ngrok free tier browser warning interstitial
         self.headers = {
             "ngrok-skip-browser-warning": "true",
             "User-Agent": "KinAvatarClient/1.0"
         }
-        if not self.colab_url:
-            print("[Avatar Client Warning] Neither COLAB_SERVER_URL nor COLAB_AVATAR_URL is set in Backend/.env. Please set it in Backend/.env or pass it to constructor.")
+        self.colab_url = ""
+        if colab_url:
+            self.colab_url = colab_url.strip().rstrip("/")
+        else:
+            self._resolve_url()
+
+    def _resolve_url(self) -> str:
+        """Dynamically re-reads URL from Backend/.env if not explicitly pinned."""
+        env_p = Path(__file__).resolve().parent.parent / ".env"
+        if env_p.exists():
+            try:
+                env_vals = dotenv_values(env_p)
+                url = (
+                    env_vals.get("KAGGLE_AVATAR_URL")
+                    or env_vals.get("COLAB_AVATAR_URL")
+                    or env_vals.get("KAGGLE_SERVER_URL")
+                    or env_vals.get("COLAB_SERVER_URL")
+                    or os.getenv("KAGGLE_AVATAR_URL", "")
+                    or os.getenv("COLAB_AVATAR_URL", "")
+                    or os.getenv("KAGGLE_SERVER_URL", "")
+                    or os.getenv("COLAB_SERVER_URL", "")
+                )
+                if url and url.strip():
+                    self.colab_url = url.strip().rstrip("/")
+            except Exception:
+                pass
+        return self.colab_url
 
     def set_url(self, url: str):
         """Update the active Colab tunnel URL."""
@@ -61,8 +82,9 @@ class MuseTalkAvatarClient:
         """
         Verifies connection to the Colab GPU server and lists cached avatar IDs.
         """
+        self._resolve_url()
         if not self.colab_url:
-            return {"status": "error", "message": "Colab Avatar URL is not configured."}
+            return {"status": "error", "message": "Colab/Kaggle Avatar URL is not configured in .env."}
         try:
             r = requests.get(f"{self.colab_url}/health", headers=self.headers, timeout=8)
             r.raise_for_status()
@@ -94,8 +116,9 @@ class MuseTalkAvatarClient:
         if not path.exists():
             raise FileNotFoundError(f"Avatar media file not found: {media_path}")
 
+        self._resolve_url()
         if not self.colab_url:
-            raise ConnectionError("Colab Avatar URL is not configured. Set COLAB_AVATAR_URL in .env.")
+            raise ConnectionError("Colab/Kaggle Avatar URL is not configured in .env.")
 
         raw_id = re.sub(r'[^a-zA-Z0-9_-]', '_', avatar_id.strip())[:32].strip('_')
         clean_id = raw_id or "avatar_default"
@@ -138,8 +161,9 @@ class MuseTalkAvatarClient:
         if not audio_file.exists():
             raise FileNotFoundError(f"Driving audio file not found: {audio_path}")
 
+        self._resolve_url()
         if not self.colab_url:
-            raise ConnectionError("Colab Avatar URL is not configured. Set COLAB_AVATAR_URL in .env.")
+            raise ConnectionError("Colab/Kaggle Avatar URL is not configured. Set COLAB_AVATAR_URL or KAGGLE_AVATAR_URL in .env.")
 
         url = f"{self.colab_url}/lipsync_file"
         print(f"🎬 Requesting lip-sync video for avatar '{avatar_id}' driven by {audio_file.name}...")
@@ -176,8 +200,9 @@ class MuseTalkAvatarClient:
         Direct in-memory video generation (Zero local disk writes):
         Uploads audio bytes directly from RAM and receives MP4 video bytes directly in RAM.
         """
+        self._resolve_url()
         if not self.colab_url:
-            raise ConnectionError("Colab Avatar URL is not configured. Set COLAB_AVATAR_URL in .env.")
+            raise ConnectionError("Colab/Kaggle Avatar URL is not configured. Set COLAB_AVATAR_URL or KAGGLE_AVATAR_URL in .env.")
 
         url = f"{self.colab_url}/lipsync_file"
         print(f"🎬 [Live Cloud Stream] Requesting lip-sync video for avatar '{avatar_id}' ({len(audio_bytes)} audio bytes in RAM)...")

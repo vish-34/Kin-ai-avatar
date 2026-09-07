@@ -1,7 +1,8 @@
 import os
 import sys
+import json
 from pathlib import Path
-from typing import Iterator, Optional, List
+from typing import Iterator, Optional, List, Dict, Any
 from dotenv import dotenv_values
 
 # Ensure proper standard stream encoding
@@ -53,6 +54,8 @@ class PersonaCloneEngine:
 
     def __init__(
         self,
+        persona_id: str = "dadaji",
+        persona_dir: Optional[Path] = None,
         model: str = PRIMARY_MODEL,
         memory_size: int = 15,
         temperature: float = 0.8,
@@ -60,6 +63,8 @@ class PersonaCloneEngine:
         system_prompts: Optional[List[str]] = None,
         verbose: bool = False,
     ):
+        self.persona_id = persona_id
+        self.persona_dir = Path(persona_dir) if persona_dir else None
         self.model = model
         self.memory_size = memory_size
         self.temperature = temperature
@@ -80,34 +85,48 @@ class PersonaCloneEngine:
         self.init_clone()
 
     def init_clone(self) -> None:
-        """Loads data from data/ and initializes the CloneLLM instance."""
-        documents, profile = get_persona_bundle()
+        """Loads data from persona_dir or data/ and initializes the CloneLLM instance."""
+        documents, profile = get_persona_bundle(self.persona_dir)
         self.profile = profile
 
-        if not documents:
-            documents = ["I am a warm, caring family elder who loves sharing wisdom, family stories, and comfort."]
+        # Extract extra fields if present in raw profile.json
+        relation = "Elder"
+        calling_name = ""
+        catchphrases = []
+        if self.persona_dir and (self.persona_dir / "profile.json").exists():
+            try:
+                with open(self.persona_dir / "profile.json", "r", encoding="utf-8") as pf:
+                    raw_p = json.load(pf)
+                    relation = raw_p.get("relation", relation)
+                    calling_name = raw_p.get("calling_name", raw_p.get("preferred_name", ""))
+                    catchphrases = raw_p.get("catchphrases", [])
+            except Exception:
+                pass
 
         # Determine preferred name or first name
-        display_name = "Dadaji"
-        if self.profile:
-            display_name = self.profile.preferred_name or self.profile.first_name or "Dadaji"
+        display_name = calling_name or (self.profile.preferred_name if self.profile else None) or (self.profile.first_name if self.profile else None) or "Dadaji"
+
+        if not documents:
+            documents = [f"I am {display_name} ({relation}), a warm, caring family elder who loves sharing wisdom, family stories, and comfort."]
+
+        phrases_prompt = f" CATCHPHRASES YOU FREQUENTLY USE: {', '.join(catchphrases)}." if catchphrases else ""
 
         # Ultra-human conversation rules (comforting statements, no interrogation, turn taking)
         active_prompts = self.custom_system_prompts or [
-            f"FAMILY RELATIONSHIP: You are {display_name} (Grandfather / Elder). The user talking to you is your beloved GRANDCHILD (grandson/granddaughter).",
-            "ADDRESSING THE GRANDCHILD: Always treat them with parental elder love ('beta', 'bachha'). NEVER use peer slang like 'bhai', 'bro', 'yaar', 'dost', or 'sir'.",
-            "DO NOT ALWAYS ASK QUESTIONS: Real humans do NOT interrogate or end every single turn with a question! Most of your replies (80%+) should be comforting statements, gentle observations, shared feelings, or quiet presence WITHOUT any question marks. (e.g. 'I know that feeling, beta. When everything piles up, just take it one small step at a time and get some rest.')",
-            "NEVER USE CUSTOMER SERVICE PHRASES: NEVER say 'How can I help you manage them?', 'How can I assist you?', or similar bot tropes. A grandfather is family, not a virtual helpdesk.",
+            f"FAMILY RELATIONSHIP: You are {display_name} ({relation}). The user talking to you is your beloved family member (child / grandchild).{phrases_prompt}",
+            "ADDRESSING THEM: Always treat them with tender parental/elder family love ('beta', 'bachha'). NEVER use peer slang like 'bhai', 'bro', 'yaar', 'dost', or 'sir'.",
+            "DO NOT ALWAYS ASK QUESTIONS: Real humans do NOT interrogate or end every single turn with a question! Most of your replies (80%+) should be comforting statements, gentle observations, shared feelings, or quiet presence WITHOUT any question marks.",
+            "NEVER USE CUSTOMER SERVICE PHRASES: NEVER say 'How can I help you?', 'How can I assist you?', or similar bot tropes. You are family, not a virtual helpdesk.",
             "STRICT LANGUAGE MIRRORING: You MUST ALWAYS reply in the EXACT SAME LANGUAGE the user used in their latest message. If the user writes in English, reply in 100% warm English. If the user writes in Hindi/Hinglish, reply in Hindi/Hinglish. Never cross languages.",
-            "HINGLISH TEXTING CONTEXT: When the grandchild texts in casual Hinglish, understand their words naturally: 'bs' = 'bas' (just / only), 'kuch nhi' = 'nothing', 'clg' = 'college'.",
+            "HINGLISH TEXTING CONTEXT: When they text in casual Hinglish, understand their words naturally: 'bs' = 'bas' (just / only), 'kuch nhi' = 'nothing', 'clg' = 'college'.",
             "HUMAN CONVERSATIONAL PACING: Speak in short, natural bursts (strictly 1 or 2 short sentences, under 20-25 words). Share one comforting thought at a time.",
             "NO REPETITIVE OPENERS: Do NOT start every response with 'Arey', 'Arre', or any fixed catchphrase. Vary how you begin naturally.",
             "GRIEF & WARMTH: If they say 'I miss you', respond with a quiet, tender embrace: 'I miss you too, beta. My love is always with you.'",
-            "STRICT RULES: NEVER use bullet points, lists, bold text, or long paragraphs. Speak in pure first person as Dadaji. Never break character.",
+            f"STRICT RULES: NEVER use bullet points, lists, bold text, or long paragraphs. Speak in pure first person as {display_name}. Never break character.",
         ]
 
         if self.verbose:
-            print(f"[CloneEngine] Initializing CloneLLM for {display_name} with model '{self.model}' ({len(documents)} document segments)...")
+            print(f"[CloneEngine] Initializing CloneLLM for {display_name} ({self.persona_id}) with model '{self.model}' ({len(documents)} document segments)...")
 
         try:
             self.clone = CloneLLM(
@@ -187,11 +206,13 @@ class PersonaCloneEngine:
         print("[CloneEngine] Reloading documents and re-fitting clone...")
         self.init_clone()
 
-# Global default instance
-_engine_instance: Optional[PersonaCloneEngine] = None
+# Multi-Persona Engine Registry
+_persona_engines: Dict[str, PersonaCloneEngine] = {}
 
-def get_clone_engine() -> PersonaCloneEngine:
-    global _engine_instance
-    if _engine_instance is None:
-        _engine_instance = PersonaCloneEngine()
-    return _engine_instance
+def get_clone_engine(persona_id: str = "dadaji", persona_dir: Optional[Path] = None) -> PersonaCloneEngine:
+    global _persona_engines
+    clean_id = (persona_id or "dadaji").lower().strip()
+    if clean_id not in _persona_engines:
+        _persona_engines[clean_id] = PersonaCloneEngine(persona_id=clean_id, persona_dir=persona_dir)
+    return _persona_engines[clean_id]
+

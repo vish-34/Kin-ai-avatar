@@ -18,7 +18,7 @@ from typing import Generator, Optional, Dict, Any
 
 # Load environment variables from Backend/.env if available
 try:
-    from dotenv import load_dotenv
+    from dotenv import load_dotenv, dotenv_values
     env_path = Path(__file__).resolve().parent.parent / ".env"
     if env_path.exists():
         load_dotenv(dotenv_path=env_path)
@@ -29,22 +29,50 @@ except ImportError:
 class OmniVoiceColabClient:
     def __init__(self, colab_url: Optional[str] = None):
         """
-        :param colab_url: Public URL from your Google Colab notebook (ngrok or cloudflare tunnel).
+        :param colab_url: Public URL from your Google Colab or Kaggle notebook (ngrok or cloudflare tunnel).
         """
-        raw_url = colab_url or os.getenv("COLAB_SERVER_URL", "") or os.getenv("COLAB_VOICE_URL", "")
-        self.colab_url = raw_url.strip().rstrip("/")
-        if not self.colab_url:
-            print("[Warning] Neither COLAB_SERVER_URL nor COLAB_VOICE_URL is set in Backend/.env. Set it before invoking speech synthesis.")
+        self.headers = {
+            "ngrok-skip-browser-warning": "true",
+            "User-Agent": "KinVoiceClient/1.0"
+        }
+        self.colab_url = ""
+        if colab_url:
+            self.colab_url = colab_url.strip().rstrip("/")
+        else:
+            self._resolve_url()
+
+    def _resolve_url(self) -> str:
+        """Dynamically re-reads URL from Backend/.env if not explicitly pinned."""
+        env_p = Path(__file__).resolve().parent.parent / ".env"
+        if env_p.exists():
+            try:
+                env_vals = dotenv_values(env_p)
+                url = (
+                    env_vals.get("KAGGLE_VOICE_URL")
+                    or env_vals.get("COLAB_VOICE_URL")
+                    or env_vals.get("KAGGLE_SERVER_URL")
+                    or env_vals.get("COLAB_SERVER_URL")
+                    or os.getenv("KAGGLE_VOICE_URL", "")
+                    or os.getenv("COLAB_VOICE_URL", "")
+                    or os.getenv("KAGGLE_SERVER_URL", "")
+                    or os.getenv("COLAB_SERVER_URL", "")
+                )
+                if url and url.strip():
+                    self.colab_url = url.strip().rstrip("/")
+            except Exception:
+                pass
+        return self.colab_url
 
     def set_url(self, url: str):
         self.colab_url = url.strip().rstrip("/")
 
     def check_health(self) -> Dict[str, Any]:
-        """Verifies connection to the Colab GPU server and lists cached voice prompts."""
+        """Verifies connection to the Colab/Kaggle GPU server and lists cached voice prompts."""
+        self._resolve_url()
         if not self.colab_url:
-            return {"status": "error", "message": "Colab URL is not configured."}
+            return {"status": "error", "message": "Colab/Kaggle Voice URL is not configured in .env."}
         try:
-            r = requests.get(f"{self.colab_url}/health", timeout=8)
+            r = requests.get(f"{self.colab_url}/health", headers=self.headers, timeout=8)
             r.raise_for_status()
             return r.json()
         except Exception as e:
@@ -65,6 +93,10 @@ class OmniVoiceColabClient:
         if not path.exists():
             raise FileNotFoundError(f"Reference audio file not found: {audio_path}")
 
+        self._resolve_url()
+        if not self.colab_url:
+            raise ConnectionError("Colab/Kaggle Voice URL is not configured in .env.")
+
         url = f"{self.colab_url}/register_voice"
         clean_speaker = re.sub(r'[^a-zA-Z0-9_-]', '_', speaker_name.strip()) or "default"
 
@@ -74,7 +106,7 @@ class OmniVoiceColabClient:
             if ref_text:
                 data["ref_text"] = ref_text
 
-            resp = requests.post(url, data=data, files=files, timeout=60)
+            resp = requests.post(url, data=data, files=files, headers=self.headers, timeout=60)
             resp.raise_for_status()
             return resp.json()
 
@@ -83,13 +115,17 @@ class OmniVoiceColabClient:
         Full text speech synthesis using the cached VoiceClonePrompt.
         Returns raw WAV bytes.
         """
+        self._resolve_url()
+        if not self.colab_url:
+            raise ConnectionError("Colab/Kaggle Voice URL is not configured in .env.")
+
         url = f"{self.colab_url}/synthesize"
         payload = {
             "text": text.strip(),
             "speaker_name": speaker_name,
             "num_step": num_step
         }
-        resp = requests.post(url, json=payload, timeout=45)
+        resp = requests.post(url, json=payload, headers=self.headers, timeout=45)
         resp.raise_for_status()
         return resp.content
 

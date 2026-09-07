@@ -57,7 +57,48 @@ export async function transcribeAudioBlob(audioBlob) {
   }
 }
 
-// 2. Real-Time Conversational SSE Stream
+// 2. Create New Persona Avatar on Backend
+export async function createAvatarOnBackend(formData) {
+  try {
+    const res = await fetch('/api/avatar/create', {
+      method: 'POST',
+      body: formData,
+    });
+    if (!res.ok) {
+      const errText = await res.text();
+      throw new Error(`Failed to create avatar: ${res.status} ${errText}`);
+    }
+    return await res.json();
+  } catch (err) {
+    console.error('[Create Avatar API Error]:', err);
+    throw err;
+  }
+}
+
+// 3. Fetch Personas Registry from Backend
+export async function fetchPersonas() {
+  try {
+    const res = await fetch('/api/personas');
+    if (!res.ok) return { personas: [] };
+    return await res.json();
+  } catch (err) {
+    console.warn('[Fetch Personas Error]:', err);
+    return { personas: [] };
+  }
+}
+
+export async function deleteAvatarOnBackend(avatarId) {
+  try {
+    const res = await fetch(`/api/avatar/${encodeURIComponent(avatarId)}`, {
+      method: 'DELETE',
+    });
+    return await res.json();
+  } catch (err) {
+    console.warn('[Delete Avatar Error]:', err);
+  }
+}
+
+// 4. Real-Time Conversational SSE Stream
 export async function streamChat(message, {
   avatarId = 'dadaji',
   speakerName = 'default',
@@ -184,7 +225,6 @@ export class AudioQueuePlayer {
     }
 
     this.isPlaying = true;
-    this.onSpeakingStart();
     this.startAnalyser();
 
     const item = this.queue.shift();
@@ -202,6 +242,7 @@ export class AudioQueuePlayer {
       };
 
       this.currentSource = source;
+      this.onSpeakingStart();
       source.start();
     } catch (err) {
       console.warn('[Audio decode error, skipping chunk]', err);

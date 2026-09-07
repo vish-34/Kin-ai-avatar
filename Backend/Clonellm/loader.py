@@ -109,5 +109,6 @@ def load_all_documents(data_dir: Optional[Path] = None) -> List[Document]:
 def get_persona_bundle(data_dir: Optional[Path] = None) -> Tuple[List[Document], Optional[UserProfile]]:
     """Returns all ingested documents and the user profile ready for CloneLLM."""
     docs = load_all_documents(data_dir)
-    profile = load_persona_profile()
+    target_profile_path = (data_dir / "profile.json") if data_dir else None
+    profile = load_persona_profile(target_profile_path)
     return docs, profile

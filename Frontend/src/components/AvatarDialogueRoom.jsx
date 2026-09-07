@@ -47,6 +47,15 @@ export default function AvatarDialogueRoom({ avatar, autoStartVideo = false, onB
     return av.photoUrl;
   };
   const avatarImgSrc = getAvatarPhoto(avatar);
+
+  // Authentic avatar talking video resolution (custom avatar vs Dadaji)
+  const getAvatarTalkingVideo = (av) => {
+    const isDadaji = !av?.id || av.id === 'dadaji' || av.id === 'ramesh-dadaji';
+    if (isDadaji) return '/dadaji_talking_stream.mp4';
+    if (av?.talkingVideoUrl) return av.talkingVideoUrl;
+    if (av?.id) return `/avatars/${av.id}_talking.mp4`;
+    return null;
+  };
   const catchphrase =
     avatar?.catchphrases && avatar.catchphrases.length > 0
       ? avatar.catchphrases[0]
@@ -164,10 +173,7 @@ export default function AvatarDialogueRoom({ avatar, autoStartVideo = false, onB
   const handleStartVideoCall = () => {
     setIsVideoCallActive(true);
     setActiveSpeechText(callGreeting);
-    setIsSpeaking(true);
-    setTimeout(() => {
-      setIsSpeaking(false);
-    }, 3500);
+    setIsSpeaking(false);
   };
 
   const handleEndVideoCall = () => {
@@ -473,10 +479,6 @@ export default function AvatarDialogueRoom({ avatar, autoStartVideo = false, onB
     setTextInput('');
     setSpeechTranscript('');
 
-    if (!isChatMode) {
-      setIsSpeaking(true);
-    }
-
     const userMsgId = Date.now();
     const avatarMsgId = userMsgId + 1;
 
@@ -502,10 +504,12 @@ export default function AvatarDialogueRoom({ avatar, autoStartVideo = false, onB
     }
 
     let accumulatedText = '';
+    const avatarPersonaId = avatar?.id || 'dadaji';
+    const avatarSpeakerName = avatar?.voiceId || avatar?.id || 'default';
 
     await streamChat(q, {
-      avatarId: 'dadaji',
-      speakerName: 'default',
+      avatarId: avatarPersonaId,
+      speakerName: avatarSpeakerName,
       streamMedia: !isChatMode,
       generateVideo: isVideoMode,
       onToken: (token) => {
@@ -525,7 +529,7 @@ export default function AvatarDialogueRoom({ avatar, autoStartVideo = false, onB
           audioPlayerRef.current.enqueueBase64(payload.audio_base64);
         }
 
-        // 2. Play MuseTalk lip-sync video (ONLY in Live Video Call mode)
+        // 2. Play MuseTalk lip-sync video if delivered
         if (isVideoMode) {
           if (payload.video_url) {
             setTalkingVideoUrl(payload.video_url);
@@ -549,23 +553,13 @@ export default function AvatarDialogueRoom({ avatar, autoStartVideo = false, onB
             m.id === avatarMsgId
               ? {
                   ...m,
-                  citation:
-                    payload.citation ||
-                    (isChatMode
-                      ? 'Archival memory'
-                      : 'Synthesized from authentic voice profile & personal memories'),
+                  citation: payload.citation || 'Authentic memory & cloned voice profile',
                 }
               : m
           )
         );
       },
       onError: (err) => {
-        console.warn('Backend stream error:', err);
-        if (isChatMode) return;
-        const fallbackText =
-          accumulatedText ||
-          "I hear you, beta. Take a quiet breath and remember that things have a way of working out.";
-        setActiveSpeechText(fallbackText);
         setMessages((prev) =>
           prev.map((m) =>
             m.id === avatarMsgId
@@ -651,18 +645,33 @@ export default function AvatarDialogueRoom({ avatar, autoStartVideo = false, onB
                   style={{ zIndex: 0 }}
                 />
 
-                {/* Only plays when talking video arrives from neural engine */}
-                {talkingVideoUrl && (
-                  <video
-                    key={talkingVideoUrl}
-                    src={talkingVideoUrl}
-                    autoPlay
-                    muted
-                    playsInline
-                    onEnded={() => setTalkingVideoUrl(null)}
-                    className={`vcall-portrait-media ${avatarFitMode === 'contain' ? 'fit-contain' : 'fit-cover'}`}
-                    style={{ zIndex: 1 }}
-                  />
+                {/* Live Talking Video: Active EXACTLY while voice is speaking, immediately at rest when silent */}
+                {isSpeaking && (
+                  (() => {
+                    const isDadaji = !avatar?.id || avatar.id === 'dadaji' || avatar.id === 'ramesh-dadaji';
+                    const defaultVideo = getAvatarTalkingVideo(avatar);
+                    const videoSrc = talkingVideoUrl || defaultVideo;
+                    if (!videoSrc) return null;
+                    return (
+                      <video
+                        key={videoSrc}
+                        src={videoSrc}
+                        onError={(e) => {
+                          if (isDadaji && e.target.src !== window.location.origin + '/dadaji_talking_stream.mp4') {
+                            e.target.src = '/dadaji_talking_stream.mp4';
+                          } else {
+                            e.target.style.display = 'none';
+                          }
+                        }}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className={`vcall-portrait-media ${avatarFitMode === 'contain' ? 'fit-contain' : 'fit-cover'}`}
+                        style={{ zIndex: 1 }}
+                      />
+                    );
+                  })()
                 )}
 
                 {/* Subtle Edge Vignette */}
@@ -901,27 +910,13 @@ export default function AvatarDialogueRoom({ avatar, autoStartVideo = false, onB
             <div className={`avatar-aura-glow ${isSpeaking ? 'speaking-glow' : ''}`} />
 
             <div className="avatar-portrait-circle-wrap">
-              {/* Clear portrait at rest */}
+              {/* Clear authentic portrait at rest & speaking aura */}
               <img
                 src={avatarImgSrc}
                 alt={avatar?.name || 'Dadaji'}
                 className={`avatar-speaking-img ${isSpeaking ? 'talking' : ''}`}
                 style={{ objectFit: 'cover' }}
               />
-
-              {/* Only plays when talking video arrives */}
-              {talkingVideoUrl && (
-                <video
-                  key={talkingVideoUrl}
-                  src={talkingVideoUrl}
-                  autoPlay
-                  muted
-                  playsInline
-                  onEnded={() => setTalkingVideoUrl(null)}
-                  className="avatar-speaking-img talking"
-                  style={{ objectFit: 'cover', position: 'absolute', inset: 0, zIndex: 1 }}
-                />
-              )}
             </div>
 
             {/* Speaking Audio Waveform Bar */}

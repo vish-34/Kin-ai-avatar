@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft,
@@ -13,6 +13,7 @@ import {
   Video
 } from 'lucide-react';
 import { getVaultAvatars, deleteAvatarFromVault } from '../utils/vaultStorage';
+import { fetchPersonas, deleteAvatarOnBackend } from '../services/api';
 import './FamilyVaultPage.css';
 
 // Framer motion easing curve matching the rest of Kin.ai
@@ -74,11 +75,56 @@ export default function FamilyVaultPage({
     justCreatedName ? `“${justCreatedName}” was successfully added to your Family Vault!` : ''
   );
 
+  useEffect(() => {
+    let isMounted = true;
+    fetchPersonas()
+      .then((res) => {
+        if (!isMounted || !res || !Array.isArray(res.personas)) return;
+        setAvatars((prev) => {
+          const existingIds = new Set(prev.map((a) => a.id));
+          const toAdd = [];
+          for (const bp of res.personas) {
+            if (bp.id !== 'dadaji' && !existingIds.has(bp.id)) {
+              toAdd.push({
+                id: bp.id,
+                name: bp.name,
+                callingName: bp.callingName || bp.name.split(' ')[0],
+                relation: bp.relation || 'Loved One',
+                lifespan: bp.lifespan || '',
+                hometown: bp.hometown || '',
+                photoUrl: bp.photoUrl || '/grandfather.jpg',
+                talkingVideoUrl: bp.talkingVideoUrl || (bp.id ? `/avatars/${bp.id}_talking.mp4` : null),
+                catchphrases: bp.catchphrases || [],
+                personalitySummary: bp.personalitySummary || '',
+                contextSourcesSummary: 'Family Memory Vault • Voice Cloned',
+                createdAt: 'Saved Persona',
+                voiceTrained: bp.voiceTrained ?? true,
+                sampleQuestions: [
+                  `“${bp.callingName || bp.name}, what advice would you give me today?”`,
+                  `“Tell me a story from your life.”`,
+                  `“I miss you. What is one thing you always wanted me to remember?”`,
+                ],
+              });
+            }
+          }
+          if (toAdd.length > 0) {
+            return [...toAdd, ...prev];
+          }
+          return prev;
+        });
+      })
+      .catch((err) => console.warn('[Vault] Backend personas sync skipped:', err));
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const handleDelete = (id, e) => {
     e.stopPropagation();
     if (window.confirm('Are you sure you want to remove this persona from your family vault?')) {
       const updated = deleteAvatarFromVault(id);
       setAvatars(updated);
+      deleteAvatarOnBackend(id);
     }
   };
 
