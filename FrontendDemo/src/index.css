@@ -1,0 +1,91 @@
+:root {
+  --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Space Grotesk', ui-monospace, monospace;
+  
+  --bg-main: #f5f5f7;
+  --bg-canvas: #ffffff;
+  --bg-canvas-subtle: #fcfcfd;
+  --text-primary: #0a0a0c;
+  --text-muted: #6e6e77;
+  --text-light: #9494a0;
+  --border-light: rgba(0, 0, 0, 0.07);
+  --border-subtle: rgba(0, 0, 0, 0.04);
+  --btn-dark: #121214;
+  --btn-dark-hover: #232328;
+  --accent-dot: #1a1a1e;
+  
+  --radius-frame: 28px;
+  --radius-pill: 9999px;
+  --radius-btn: 12px;
+  
+  --shadow-canvas: 0 20px 60px -15px rgba(0, 0, 0, 0.05), 0 0 1px 1px rgba(0, 0, 0, 0.03);
+  --shadow-btn: 0 10px 25px -5px rgba(18, 18, 20, 0.3), 0 4px 6px -2px rgba(18, 18, 20, 0.15);
+  --shadow-btn-hover: 0 14px 30px -4px rgba(18, 18, 20, 0.38), 0 6px 10px -2px rgba(18, 18, 20, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db #ffffff;
+}
+
+/* Custom Sleek Scrollbar: Grey thumb on White track */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 9999px;
+  border: 2px solid #ffffff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #9ca3af;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+html:has(body.studio-mode-active),
+body.studio-mode-active {
+  scroll-behavior: auto !important;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 16px 20px 24px;
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 8px 10px 16px;
+  }
+}
