@@ -89,3 +89,57 @@ html, body {
     padding: 8px 10px 16px;
   }
 }
+
+/* ============================================================
+   MOBILE SCROLL PERFORMANCE
+   Native browser momentum scroll is smoother than any JS lib
+   on iOS/Android — these hints ensure the browser can use it.
+   ============================================================ */
+@media (hover: none) and (pointer: coarse) {
+  html, body {
+    /* Enable native momentum scrolling on iOS Safari */
+    -webkit-overflow-scrolling: touch;
+    /* Tell the browser we only pan vertically so it doesn't
+       wait to disambiguate touch events */
+    touch-action: pan-y;
+    /* Prevent sub-pixel font rendering flicker during scroll */
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+
+  /* Promote the main scroll container to its own GPU layer
+     so it composites independently and doesn't repaint on scroll */
+  .app-viewport {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Background decoration — static on mobile, no animation needed */
+  .hero-atmosphere,
+  .subtle-dot-grid,
+  .ambient-dot {
+    will-change: auto;
+    animation: none;
+  }
+
+  /* GPU-promote elements that animate so they don't cause layout
+     thrashing during scroll on lower-end phones */
+  .hero-center-container,
+  .hero-headline,
+  .contrast-card,
+  .pillar-card,
+  .trust-dark-card,
+  .avatar-room-container {
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+
+  /* Disable scroll-linked hover effects that cause paint on mobile */
+  .persona-tab-pill:hover,
+  .quick-prompt-btn:hover,
+  .banner-cta-btn:hover {
+    transform: none;
+  }
+}

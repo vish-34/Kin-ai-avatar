@@ -23,32 +23,39 @@ export default function App() {
     return 'home';
   });
 
-  // Initialize Lenis ultra-smooth inertial momentum scrolling on Home
+  // Initialize Lenis smooth-scroll only on desktop (mouse wheel).
+  // On touch/mobile devices we let native browser momentum handle scrolling —
+  // it is significantly smoother than any JS-driven alternative on iOS/Android.
   useEffect(() => {
     let lenis = null;
+    let rafId = null;
 
-    if (currentPage === 'home') {
+    const isTouchDevice = () =>
+      window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
+      navigator.maxTouchPoints > 0;
+
+    if (currentPage === 'home' && !isTouchDevice()) {
       lenis = new Lenis({
-        duration: 1.8,
+        duration: 1.6,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         orientation: 'vertical',
         gestureOrientation: 'vertical',
         smoothWheel: true,
-        wheelMultiplier: 0.85,
-        touchMultiplier: 1.2,
-        lerp: 0.048,
+        wheelMultiplier: 0.88,
+        touchMultiplier: 0,   // disabled — native touch handles it
+        lerp: 0.06,
         infinite: false,
-        syncTouch: true,
+        syncTouch: false,
       });
 
       window.lenis = lenis;
 
       function raf(time) {
         lenis.raf(time);
-        requestAnimationFrame(raf);
+        rafId = requestAnimationFrame(raf);
       }
 
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     } else {
       if (window.lenis) {
         window.lenis.destroy();
@@ -57,9 +64,10 @@ export default function App() {
     }
 
     return () => {
+      if (rafId) cancelAnimationFrame(rafId);
       if (lenis) {
-        window.lenis = null;
         lenis.destroy();
+        window.lenis = null;
       }
     };
   }, [currentPage]);
