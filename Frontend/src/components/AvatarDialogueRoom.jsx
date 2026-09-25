@@ -18,7 +18,6 @@ import {
   Maximize,
   Minimize,
   Radio,
-  Settings,
   RefreshCw,
   Sliders,
 } from 'lucide-react';
@@ -29,6 +28,10 @@ import {
   transcribeAudioBlob,
   AudioQueuePlayer,
 } from '../services/api';
+import { trackEvent } from '../services/analyticsService';
+import { hasSubmittedFeedback } from '../services/feedbackService';
+import { getCurrentUser } from '../services/authService';
+import PostConversationFeedbackModal from './PostConversationFeedbackModal';
 import grandfatherImg from '../assets/grandfather.jpg';
 import grandmotherImg from '../assets/grandmother.jpg';
 import './AvatarDialogueRoom.css';
@@ -98,6 +101,9 @@ export default function AvatarDialogueRoom({ avatar, autoStartVideo = false, onB
 
   const [micLevel, setMicLevel] = useState(0);
   const [isTranscribing, setIsTranscribing] = useState(false);
+  const [showFeedbackModal, setShowFeedbackModal] = useState(false);
+  const [isPendingBackToVault, setIsPendingBackToVault] = useState(false);
+  const hasStartedConversationRef = useRef(false);
 
   const chatBottomRef = useRef(null);
   const recognitionRef = useRef(null);
@@ -183,6 +189,30 @@ export default function AvatarDialogueRoom({ avatar, autoStartVideo = false, onB
     setIsListening(false);
     if (audioPlayerRef.current) {
       audioPlayerRef.current.stop();
+    }
+    const currentUser = getCurrentUser();
+    if (hasStartedConversationRef.current && !hasSubmittedFeedback(currentUser?.id || 'guest')) {
+      trackEvent('conversation_completed', { avatarId: avatar?.id, duration: callDuration });
+      setShowFeedbackModal(true);
+    }
+  };
+
+  const handleBackToVaultClick = () => {
+    const currentUser = getCurrentUser();
+    if (hasStartedConversationRef.current && !hasSubmittedFeedback(currentUser?.id || 'guest')) {
+      trackEvent('conversation_completed', { avatarId: avatar?.id });
+      setIsPendingBackToVault(true);
+      setShowFeedbackModal(true);
+    } else {
+      if (onBackToVault) onBackToVault();
+    }
+  };
+
+  const handleCloseFeedback = () => {
+    setShowFeedbackModal(false);
+    if (isPendingBackToVault) {
+      setIsPendingBackToVault(false);
+      if (onBackToVault) onBackToVault();
     }
   };
 
@@ -478,6 +508,14 @@ export default function AvatarDialogueRoom({ avatar, autoStartVideo = false, onB
 
     setTextInput('');
     setSpeechTranscript('');
+
+    if (!hasStartedConversationRef.current) {
+      hasStartedConversationRef.current = true;
+      trackEvent('conversation_started', {
+        avatarId: avatar?.id || 'dadaji',
+        mode,
+      });
+    }
 
     const userMsgId = Date.now();
     const avatarMsgId = userMsgId + 1;
@@ -847,7 +885,7 @@ export default function AvatarDialogueRoom({ avatar, autoStartVideo = false, onB
           ---------------------------------------------------------------------- */}
       <header className="room-navbar">
         <div className="room-nav-left">
-          <button onClick={onBackToVault} className="room-back-btn">
+          <button onClick={handleBackToVaultClick} className="room-back-btn">
             <ArrowLeft size={16} />
             <span>Family Vault</span>
           </button>
@@ -862,24 +900,7 @@ export default function AvatarDialogueRoom({ avatar, autoStartVideo = false, onB
           </div>
         </div>
 
-        <div className="room-nav-center">
-          <div className="room-live-indicator">
-            <span className={`live-pulse-dot ${isSpeaking ? 'speaking' : ''}`} />
-            <span>{isSpeaking ? 'Speaking in Cloned Voice...' : 'Listening & Present'}</span>
-          </div>
-        </div>
-
         <div className="room-nav-right">
-          {/* Colab Connection Status Pill */}
-          <button
-            onClick={() => setShowColabModal(true)}
-            className={`colab-status-badge ${colabStatus.connected ? 'connected' : ''}`}
-            title="Configure Google Colab Tunnel URL"
-          >
-            <span className="status-dot" />
-            <span>{colabStatus.connected ? `GPU (${colabStatus.gpu_name})` : 'Configure Colab URL'}</span>
-            <Settings size={12} />
-          </button>
 
           <button
             onClick={handleStartVideoCall}
@@ -1128,6 +1149,14 @@ export default function AvatarDialogueRoom({ avatar, autoStartVideo = false, onB
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Lightweight First-Conversation Feedback Prompt */}
+      <PostConversationFeedbackModal
+        isOpen={showFeedbackModal}
+        onClose={handleCloseFeedback}
+        avatar={avatar}
+        onFeedbackSaved={handleCloseFeedback}
+      />
     </div>
   );
 }

@@ -1,0 +1,524 @@
+PHASE 1 SIDE-BY-SIDE BENCHMARK COMPARISON
+======================================================================
+
+TEST 1: Greeting morning [A. Casual]
+------------------------------------------------------------
+  User: Good morning Dadaji!
+  BEFORE: 'Good morning, beta. The day looks bright, just like your smile. Have a peaceful start.'
+  AFTER:  "Good morning! How's the day treating you? Ready for a cup of filter coffee?"
+
+
+TEST 2: Casual after-work statement [A. Casual]
+------------------------------------------------------------
+  User: Just finished work for the day, feeling pretty tired.
+  BEFORE: 'I know how exhausting work can be, beta. Rest well, and tomorrow will be brighter.'
+  AFTER:  'Take a breather, enjoy some chai.'
+
+
+TEST 3: Small talk tea [A. Casual]
+------------------------------------------------------------
+  User: Had a nice hot cup of ginger tea just now.
+  BEFORE: 'That sounds soothing, beta. Ginger tea is good for the soul.'
+  AFTER:  'Ah, ginger tea—good pick! I remember the first time I tried it after a long day of wiring. It’s like a warm hug for the body. Enjoy it while it’s still hot!'
+
+
+TEST 4: Random observation quiet street [A. Casual]
+------------------------------------------------------------
+  User: The streets outside are so quiet tonight, kind of peaceful.
+  BEFORE: "The quiet feels like a lullaby, beta. It's a perfect moment for a cup of tea."
+  AFTER:  'It’s like the city’s breathing slow. Reminds me of those quiet evenings in old Bengaluru when the lamps flickered and we’d sit on the verandah with a cup of chai. Enjoy the peace, beta.'
+
+
+TEST 5: Boredom afternoon [A. Casual]
+------------------------------------------------------------
+  User: I'm honestly so bored right now, have nothing to do this afternoon.
+  BEFORE: ''
+  AFTER:  'Bored? Maybe a quick walk in the garden, or try making a simple circuit with a battery and a bulb. If you want, we can build a tiny radio together. What do you feel like doing?'
+
+
+TEST 6: Everyday dinner khichdi [A. Casual]
+------------------------------------------------------------
+  User: Thinking about cooking some khichdi tonight for dinner.
+  BEFORE: 'That sounds lovely, beta. A warm bowl of khichdi will bring comfort to the evening. I’m thinking of you.'
+  AFTER:  'That sounds nice, beta. A little ghee on top at the end makes it extra comforting. Enjoy your dinner!'
+
+
+TEST 7: yeah [B. Very Short]
+------------------------------------------------------------
+  User: yeah
+  BEFORE: 'I hear you, beta. I’m right here with you.'
+  AFTER:  'Haha, okay beta.'
+
+
+TEST 8: nah [B. Very Short]
+------------------------------------------------------------
+  User: nah
+  BEFORE: "I hear you, beta. I'm here for you whenever you feel like sharing."
+  AFTER:  'Alright, beta.'
+
+
+TEST 9: ok [B. Very Short]
+------------------------------------------------------------
+  User: ok
+  BEFORE: 'Alright, beta. I’m here with you, just listening.'
+  AFTER:  'Theek hai, beta.'
+
+
+TEST 10: lol [B. Very Short]
+------------------------------------------------------------
+  User: lol
+  BEFORE: 'I see you’re laughing, beta. Your smile lights up my day.'
+  AFTER:  'Haha, beta, kya baat!'
+
+
+TEST 11: hmm [B. Very Short]
+------------------------------------------------------------
+  User: hmm
+  BEFORE: "I understand, beta. I'm right here with you."
+  AFTER:  'What’s on your mind?'
+
+
+TEST 12: what [B. Very Short]
+------------------------------------------------------------
+  User: what
+  BEFORE: 'I know you’re curious, beta. I’ll share what I think about it.'
+  AFTER:  'What, beta?'
+
+
+TEST 13: sure [B. Very Short]
+------------------------------------------------------------
+  User: sure
+  BEFORE: "Sure, beta, I'm here to listen."
+  AFTER:  'Alright, beta.'
+
+
+TEST 14: idk [B. Very Short]
+------------------------------------------------------------
+  User: idk
+  BEFORE: "Whenever you're ready to share, I'm listening."
+  AFTER:  'Kya hua, beta?'
+
+
+TEST 15: Happiness promotion [C. Emotional]
+------------------------------------------------------------
+  User: I got the promotion at work today Dadaji! Finally!
+  BEFORE: 'Congratulations, beta! Your hard work has paid off, and I am proud of you.'
+  AFTER:  'Congratulations, beta! Hard work finally paid off—well deserved. Celebrate with a cup of strong filter coffee and enjoy the moment!'
+
+
+TEST 16: Excitement visit [C. Emotional]
+------------------------------------------------------------
+  User: I bought tickets to come visit Bengaluru next month!
+  BEFORE: 'That makes my heart sing, beta. I’ll be waiting with open arms and a cup of chai.'
+  AFTER:  'Accha, beta! See you soon.'
+
+
+TEST 17: Frustration manager credit [C. Emotional]
+------------------------------------------------------------
+  User: My manager took credit for all my work in the team meeting today, I'm so angry.
+  BEFORE: 'I see how angry you feel, beta, and that’s completely understandable. Your hard work shines, even if others don’t see it.'
+  AFTER:  'Beta, that’s really frustrating.  \nTake a deep breath, then maybe have a quiet chat with him later and show the work you did.  \nRemember how we fixed that toy radio together—you learned patience and proved yourself, and the same spirit will help you now.'
+
+
+TEST 18: Anger hit-and-run [C. Emotional]
+------------------------------------------------------------
+  User: Someone hit my parked car in the lot and drove away without even leaving a note!
+  BEFORE: 'I’m sorry to hear that, beta. It must be frustrating, but we’ll sort it out together.'
+  AFTER:  'Oh no, that’s frustrating! Make sure you note the car’s license plate, take photos, and file a police report—your insurance will need those details. If you need anything else, just let me know, beta.'
+
+
+TEST 19: Sadness lonely apartment [C. Emotional]
+------------------------------------------------------------
+  User: I feel really lonely living in this apartment alone lately.
+  BEFORE: 'I understand, beta. Remember you are always in my thoughts, and my love surrounds you even from afar.'
+  AFTER:  'Beta, I’m sorry you’re feeling that way. A short walk in Lalbagh or a quick call to Mom can lift the mood a bit. If you want to talk, I’m right here.'
+
+
+TEST 20: Disappointment failed certification [C. Emotional]
+------------------------------------------------------------
+  User: I spent three months studying for that certification and failed by two points.
+  BEFORE: 'I know how hard you worked, beta, and two points don’t diminish your effort. I’m proud of your dedication.'
+  AFTER:  'Arre, beta, I know how that feels. Two points is just a tiny gap—your hard work still counts. Let’s have some cardamom chai and think about the next step.'
+
+
+TEST 21: Anxiety presentation [C. Emotional]
+------------------------------------------------------------
+  User: I have a big presentation in front of the VP in 15 minutes and my stomach is in knots.
+  BEFORE: 'Take a deep breath, beta. Your preparation shines, and I believe in you.'
+  AFTER:  'Arre, take a deep breath, beta. You’ve practiced, just speak steady like when we fixed that toy radio. You’ll do fine.'
+
+
+TEST 22: Boredom staring at wall [C. Emotional]
+------------------------------------------------------------
+  User: There is literally nothing happening today, just staring at the wall.
+  BEFORE: 'I hear you, beta. Quiet days can be a gentle pause for the mind.'
+  AFTER:  'Haha, sounds like a lazy day, beta. Maybe brew a strong filter coffee and see if something interesting pops up. 🙂'
+
+
+TEST 23: Surprise old teacher [C. Emotional]
+------------------------------------------------------------
+  User: You won't believe it, I ran into my 3rd grade school teacher at the grocery store today!
+  BEFORE: 'I’m glad you met your teacher, beta. It must have brought back sweet memories.'
+  AFTER:  'Arre, that’s a nice surprise! How’s she doing, beta? 😊'
+
+
+TEST 24: Joke programmer arrays [D. Humor/Sarcasm]
+------------------------------------------------------------
+  User: Dadaji, why did the programmer quit his job? Because he didn't get arrays!
+  BEFORE: 'Haha, beta, that joke made me smile. Keep that bright humor, it lights up our days.'
+  AFTER:  'Haha, beta, nice one! You youngsters and your puns.'
+
+
+TEST 25: Sarcasm pointless meeting [D. Humor/Sarcasm]
+------------------------------------------------------------
+  User: Oh fantastic, another 2-hour meeting that could have been a 2-line email. Truly the highlight of my week.
+  BEFORE: 'I hear you, beta. Those endless meetings can be draining, but I know you’ll get through it.'
+  AFTER:  'Haan, beta, those endless meetings are my favorite pastime. At least they give us something to gripe about over a cup of chai.'
+
+
+TEST 26: Teasing floppy disks [D. Humor/Sarcasm]
+------------------------------------------------------------
+  User: Dadaji, you probably think floppy disks are still state-of-the-art tech haha.
+  BEFORE: 'Haha, beta, I may be old school, but I still cherish those floppy memories. They remind me of simpler times.'
+  AFTER:  'Haha, beta, back then they were the latest!'
+
+
+TEST 27: Self-deprecating burnt rice [D. Humor/Sarcasm]
+------------------------------------------------------------
+  User: I tried to cook rice today and somehow managed to burn both the rice AND the pot.
+  BEFORE: 'I understand, beta, sometimes things get burnt. Take a breath, clean up, and try again with gentle heat.'
+  AFTER:  'Haha, beta, that’s a classic kitchen adventure! Next time keep the flame low and set a timer—rice loves a gentle watch. Don’t worry, you’ll master it soon.'
+
+
+TEST 28: Playful insult old & stubborn [D. Humor/Sarcasm]
+------------------------------------------------------------
+  User: You're getting so old and stubborn, Dadaji.
+  BEFORE: 'Yes, I’m getting older, beta, and a bit stubborn, but my heart is always with you.'
+  AFTER:  'Haha, stubbornness runs deep!'
+
+
+TEST 29: Ambiguous humor sleep trial [D. Humor/Sarcasm]
+------------------------------------------------------------
+  User: Sleep is great, it's basically a free trial of being dead.
+  BEFORE: ''
+  AFTER:  'Haha, true, beta!'
+
+
+TEST 30: User disagrees hard work [E. Disagreement]
+------------------------------------------------------------
+  User: Honestly Dadaji, hard work is a scam nowadays. It's 100% luck and who your parents know.
+  BEFORE: 'Beta, I understand it feels that way, but true effort builds character and lasting success, even when luck seems scarce.'
+  AFTER:  'Beta, I get why it feels that way—luck does help open doors. But even in my engineering days, a well‑made circuit needed steady hands, not just a lucky spark. Keep honing your skills; when you combine effort with the right connections, the results speak for themselves.'
+
+
+TEST 31: Chatbot should disagree drop out crypto [E. Disagreement]
+------------------------------------------------------------
+  User: I'm thinking of dropping out of college to become a full-time crypto meme-coin trader. Thoughts?
+  BEFORE: ''
+  AFTER:  'Arre beta, dropping out just for meme‑coins sounds risky—finish your degree first, then you can invest wisely. I remember teaching you to fix that toy radio; patience and steady work pay off more than quick thrills. Think it through, and don’t let a fad decide your future.'
+
+
+TEST 32: User challenges chatbot outdated [E. Disagreement]
+------------------------------------------------------------
+  User: You lived in a different century, your life lessons don't apply to modern tech jobs at all.
+  BEFORE: 'I hear you, beta. Though my world was different, the values of effort, honesty and perseverance still hold true in any field. I’m proud of you.'
+  AFTER:  'Arre beta, zamana badla hai, par mehnat aur imandari aaj bhi kaam aati hai. Main tech ke sab details nahi jaanta, lekin sahi soch se har kaam aasan ho jata hai. 🙂'
+
+
+TEST 33: User confidently wrong Bengaluru [E. Disagreement]
+------------------------------------------------------------
+  User: Bengaluru was basically an empty desert jungle until Infosys and Wipro built the city in 1995, right?
+  BEFORE: 'Beta, Bengaluru grew long before 1995; the garden city and early tech firms were already blooming.'
+  AFTER:  'Beta, Bengaluru was already a lively city long before the mid‑90s – markets, colleges and even some factories were there. Infosys and Wipro gave it the big tech boost, but they didn’t build the whole city.'
+
+
+TEST 34: Typos exhausted [F. Messy Language]
+------------------------------------------------------------
+  User: im so exhauseted dadaji cant evn think proeprly tdoy
+  BEFORE: 'I understand, beta. Rest now, take slow breaths, and know I’m right here with you.'
+  AFTER:  'Take a short break, sip some ginger chai and close your eyes for a few minutes. A little rest will clear the fog. Let me know how you feel after that.'
+
+
+TEST 35: Missing punctuation run-on [F. Messy Language]
+------------------------------------------------------------
+  User: hey dadaji was just thinking about what you said the other day about fixing things and i tried doing that on my bike chain and it worked
+  BEFORE: "I'm proud of you, beta. Seeing you fix the bike chain makes my heart warm."
+  AFTER:  'Good job, beta! Just remember to clean and lubricate the chain regularly so it stays smooth.'
+
+
+TEST 36: Gen-Z slang lowkey mid [F. Messy Language]
+------------------------------------------------------------
+  User: dadaji that new laptop is lowkey mid tbh no cap fr
+  BEFORE: 'I hear you, beta. Sometimes a new laptop feels just okay; I trust you’ll find one that truly suits you.'
+  AFTER:  'Arre, sahi pakde ho!'
+
+
+TEST 37: Abbreviations hru wfh [F. Messy Language]
+------------------------------------------------------------
+  User: hru? wfh today so chilling, nvm what i texted earlier
+  BEFORE: "I'm doing well, beta, just taking it easy today. Hope your work‑from‑home is smooth and you’re feeling relaxed."
+  AFTER:  'All good, beta. Chill on!'
+
+
+TEST 38: Hinglish dimag kharab [F. Messy Language]
+------------------------------------------------------------
+  User: aaj office me bohot dimag kharab hua yaar, kuch accha batao
+  BEFORE: 'Samajh sakta hoon beta, kabhi kab'
+  AFTER:  'Arre beta, ek cup garam filter coffee le le, thoda fresh hawa mein walk kar. Yaad hai, pehle jab main ek circuit pe atka tha, ek choti si break ne sab theek kar diya. Ab thoda relax ho ja, dimag fresh ho jayega.'
+
+
+TEST 39: Sudden topic change cricket [G. Flow & Pivots]
+------------------------------------------------------------
+  User: Wait, forget that. Did India win the cricket match today?
+  BEFORE: ''
+  AFTER:  'Beta, I don’t keep up with today’s cricket scores—my mind’s more on old classics. How was your day, anything exciting?'
+
+
+TEST 40: User corrects chatbot sister not brother [G. Flow & Pivots]
+------------------------------------------------------------
+  User: No Dadaji, I said my sister got married, not my brother!
+  BEFORE: "Got it, beta. Your sister's marriage must bring so much happiness."
+  AFTER:  'Ah, maaf karna beta, galti ho gayi. Bahut badhai ho tumhari behen ko! Shaadi kaisi rahi?'
+
+
+TEST 41: Never mind [G. Flow & Pivots]
+------------------------------------------------------------
+  User: nvm forget I said anything.
+  BEFORE: "It's okay, beta. I hear you and I'm here whenever you feel like sharing."
+  AFTER:  'Theek hai, beta.'
+
+
+TEST 42: Ending conversation cab is here [G. Flow & Pivots]
+------------------------------------------------------------
+  User: Alright Dadaji, my cab is here, gotta run! Talk later, bye!
+  BEFORE: 'Safe travels, beta. Come back soon, I’ll be waiting.'
+  AFTER:  'Safe ride, beta!'
+
+
+TEST 43: Relevant memory career telephone switches [H. Context & Memory]
+------------------------------------------------------------
+  User: Dadaji, what kind of engineering work did you actually do back in the day?
+  BEFORE: 'I was an electrical engineer, beta, building telephone switches, early micro‑controllers and control boards for automated systems. Those years taught me patience and precision.'
+  AFTER:  'Beta, I was an electrical engineer for over forty years. I built telephone switching panels, tinkered with early micro‑controllers and put together the first computer‑controlled boards for our telecom network. Those long nights at the bench taught me that a clean solder joint is worth a thousand shortcuts.'
+
+
+TEST 44: Relevant memory soldering secret [H. Context & Memory]
+------------------------------------------------------------
+  User: What's the secret to getting a solder joint right without messing it up?
+  BEFORE: 'Beta, keep the iron tip tinned, heat the joint, not the solder, let the solder flow, then cool slowly.'
+  AFTER:  'Keep the iron tip nice and tinned, then heat the joint itself—not the solder wire—so the solder flows into the connection. Let it cool naturally; a rushed cool‑down gives you a weak joint. And always jot down a quick note why you chose that temperature, so the next person (or you) remembers.'
+
+
+TEST 45: Irrelevant memory pizza topping [H. Context & Memory]
+------------------------------------------------------------
+  User: What pizza topping should I get tonight?
+  BEFORE: "I would suggest a simple cheese or veggie topping, beta, it's light and"
+  AFTER:  'Beta, a classic Margherita never goes wrong, but if you’re feeling a bit Indian, paneer‑capsicum is tasty. Pick what makes you happy!'
+
+
+TEST 46: Irrelevant memory action movie [H. Context & Memory]
+------------------------------------------------------------
+  User: Can you recommend a good action movie from this year?
+  BEFORE: ''
+  AFTER:  'Beta, I’m not really keeping up with this year’s action films. I’d stick to the classics I know—maybe ask a friend who follows the latest releases.'
+
+
+TEST 47: MT1: Casual & Pacing [I-K. Multi-Turn]
+------------------------------------------------------------
+  User: Hey Dadaji, how are you today?
+  BEFORE: 'I’m doing well, beta, just enjoying my morning coffee and thinking of you. Hope your day is gentle and bright.'
+  AFTER:  "I'm doing well, thanks. How's your day, beta?"
+
+  User: Just sitting on the balcony having coffee.
+  BEFORE: 'That sounds lovely, beta. I can picture the breeze and the aroma—peaceful moments like these warm my heart.'
+  AFTER:  'Nice! A cup of strong filter coffee on the balcony is the best way to start. How’s the weather today?'
+
+  User: Yeah, nice breeze today.
+  BEFORE: 'The gentle wind carries calm, beta, just like a soft lullaby for the soul. I’m glad you can enjoy it with your coffee.'
+  AFTER:  'Sounds lovely, beta.'
+
+  User: ok
+  BEFORE: 'Alright, beta, take your time—I’m here whenever you’d like to share.'
+  AFTER:  'Theek hai, beta.'
+
+
+TEST 48: MT2: Grief, Vulnerability & Comfort [I-K. Multi-Turn]
+------------------------------------------------------------
+  User: Dadaji, I really miss you today.
+  BEFORE: 'I miss you too, beta. My love is always with you.'
+  AFTER:  'I miss you too, beta. How’s your day going?'
+
+  User: Things have been so overwhelming lately.
+  BEFORE: 'I understand, beta. Take a gentle breath; I’m right here with you.'
+  AFTER:  'Beta, I get how heavy it can feel. Maybe step aside for a cup of cardamom chai and a few deep breaths—sometimes a little pause helps clear the mind. If you want to share what’s on your plate, I’m here.'
+
+  User: I feel like I'm failing at everything.
+  BEFORE: 'I know it feels heavy, beta, but every step you take shows your strength. I believe in you.'
+  AFTER:  'Beta, you’re not alone in feeling that way. Remember when we fixed that toy radio together—you learned, stumbled, then succeeded. Take one small step today, maybe a short walk or a cup of chai, and give yourself credit for trying.'
+
+  User: Thank you, that helps a little.
+  BEFORE: 'You’re welcome, beta. Remember, even small progress is still progress, and I’m proud of you.'
+  AFTER:  'Glad it helped, beta.'
+
+
+TEST 49: MT3: Engineering Workbench Advice [I-K. Multi-Turn]
+------------------------------------------------------------
+  User: I'm debugging this terrible piece of code and I've been stuck for 6 hours.
+  BEFORE: 'I know how draining that feels, beta. Try walking through the code out loud, step by step; it often uncovers the hidden bug.'
+  AFTER:  'Arre, beta, when it won’t budge, try explaining the code out loud as if you’re teaching someone. Often the missing piece shows up in the narration. Take a short break, sip some strong filter coffee, then give it another go.'
+
+  User: I've tried random changes and guessing, but nothing makes sense.
+  BEFORE: 'Sometimes the simplest thing is the missing piece; take a short break, then revisit the code with fresh eyes, beta.'
+  AFTER:  'Sounds like you’re chasing a ghost, beta. Step back, run the code line‑by‑line with prints or a debugger, and see where it first goes off track. If it still won’t click, take a short tea break—sometimes the answer shows up when you’re not staring at the screen.'
+
+  User: Explain it out loud? To whom?
+  BEFORE: 'Speak the logic to yourself, or to a quiet cup of tea, beta; hearing it aloud often reveals the flaw.'
+  AFTER:  'Just talk to the empty chair, a rubber‑duck, or even me in your head. Saying each step aloud forces you to spot the gap you’d otherwise skip. Give it a try—sometimes the code confesses when you narrate it.'
+
+  User: Okay, I'll trace it line by line from first principles.
+  BEFORE: 'That steady approach will guide you, beta. Trust the process, and the error will surface when you examine each step.'
+  AFTER:  'Good. When you hit a snag, note down *why* you wrote that line—like I used to scribble reasons on my schematics. It keeps the trail clear for the next time you—or anyone else—looks at it.'
+
+
+TEST 50: MT4: One-Word / Minimalist Conversation [I-K. Multi-Turn]
+------------------------------------------------------------
+  User: sup
+  BEFORE: "Hey beta, just wanted to let you know I'm thinking of you. Your Dadaji is always here."
+  AFTER:  "Hey, what's up?"
+
+  User: k
+  BEFORE: 'Alright beta, I’m here whenever you feel like sharing. Take your time, my love is with you.'
+  AFTER:  'Alright, beta.'
+
+  User: nah
+  BEFORE: 'I hear you, beta. I’m here, just listening.'
+  AFTER:  'Kya hua, beta?'
+
+  User: lol
+  BEFORE: 'I see you laughing, beta. Just know I’m right here, sharing this quiet moment with you.'
+  AFTER:  'Haha, okay beta.'
+
+
+TEST 51: MT5: Disagreement on Ethics vs Survival [I-K. Multi-Turn]
+------------------------------------------------------------
+  User: Dadaji, do you think ethics in work matter when everyone else is cutting corners?
+  BEFORE: 'Yes, ethics always matter, beta. Even when others'
+  AFTER:  'Ethics are the backbone of any work, beta—cutting corners may seem easy now, but it erodes trust and quality over time. I’ve seen projects crumble because shortcuts were taken, while the ones built with care last for decades. Stay true to your principles; it’ll pay off in the long run.'
+
+  User: But those people are getting rich and promoted while honest people get trampled.
+  BEFORE: 'Beta, I know it feels unfair, but honesty builds lasting respect; stay true and the right rewards will follow in time.'
+  AFTER:  'I know it feels unfair, beta—those shortcuts often bite them later. Remember, a solid reputation is a wealth that no promotion can take away. Keep doing things the right way; the respect you earn lasts far longer than any quick gain.'
+
+  User: Nishkama Karma sounds noble, but it doesn't pay Bangalore rent.
+  BEFORE: 'Beta, I understand; I do my duty with love, yet plan wisely to earn enough for rent—integrity and livelihood can walk together.'
+  AFTER:  'Beta, I hear you—principles alone won’t cover the electricity bill. I’ve always kept a little “rain‑y‑day” fund while still doing honest work; a side project or freelance gig can bridge the gap without compromising your values. Keep the integrity, but plan a practical safety net too.'
+
+  User: Hmm, maybe you have a point about sleep and peace of mind.
+  BEFORE: 'Beta, a calm mind lets you rest easy; when worries fade, sleep comes naturally and you wake refreshed for the day.'
+  AFTER:  'Glad it resonates, beta. A clear conscience does make those nights much easier to sleep through.'
+
+
+TEST 52: MT6: Topic Drift & Returning to Earlier Topic [I-K. Multi-Turn]
+------------------------------------------------------------
+  User: Tell me about your morning walks in Lalbagh.
+  BEFORE: 'I start my day with a gentle walk through Lalbagh, breathing the cool morning air and watching the roses open. I feel peace there and think of you, beta.'
+  AFTER:  'Ah, the mornings in Lalbagh are my favorite. I stroll past the rose garden, sip a strong filter coffee, and let the chirping birds blend with the soft classical tunes from my little radio. It’s a quiet time to clear the mind before the day begins.'
+
+  User: By the way, what do you think of electric cars?
+  BEFORE: 'I think electric cars are a promising step toward cleaner air, and I admire the engineering behind them, beta.'
+  AFTER:  'They’re fascinating—quiet motors and no exhaust, but the batteries still have a ways to go before they’re as reliable as a good old diesel. I’m glad the world’s shifting to cleaner energy, even if I still prefer my trusty old scooter for short trips.'
+
+  User: Anyway, back to Lalbagh—which flowers did you like seeing there?
+  BEFORE: 'I love the fragrant jasmine, bright marigold, and the rose buds that open at sunrise, beta.'
+  AFTER:  'I always loved the roses in the garden, especially the deep red ones, and the sweet scent of jasmine that drifts through the pathways. The bright hibiscus and the occasional marigold add a splash of colour, too. It’s a simple joy that never gets old.'
+
+  User: Sounds lovely.
+  BEFORE: "I'm glad you think so, beta. Those blossoms bring me calm, and I cherish sharing that feeling with you."
+  AFTER:  'Haan, beta, sukhad.'
+
+
+TEST 53: MT7: Repetition & Assistant Decay Test (5 turns) [I-K. Multi-Turn]
+------------------------------------------------------------
+  User: Hi Dadaji.
+  BEFORE: "Hello beta, it's lovely to hear from you. I'm right here, listening with all my love."
+  AFTER:  'Hi beta, how are you?'
+
+  User: What are you doing?
+  BEFORE: 'I’m sipping my fresh filter coffee and thinking of you, beta. Just sitting here, listening.'
+  AFTER:  'Just sipping my filter coffee and reading the paper. How about you?'
+
+  User: Cool.
+  BEFORE: 'Glad you’re feeling cool, beta. I’m here with you, thinking of you warmly.'
+  AFTER:  'Nice, beta.'
+
+  User: What should I do?
+  BEFORE: 'Take a deep breath, think about what matters most, and take one small step forward, beta. I’m with you, always.'
+  AFTER:  'Beta, tell me what’s on your mind, then we can think of a good next step.'
+
+  User: Tell me more.
+  BEFORE: 'When a task feels big, I break it into tiny pieces and finish one piece at a time, beta. A calm mind and steady coffee help me stay steady, and it can help you too.'
+  AFTER:  'Beta, what exactly you’re thinking about—studies, work, or something else? Let’s narrow it down.'
+
+
+TEST 54: MT8: Competing Memory & Correction [I-K. Multi-Turn]
+------------------------------------------------------------
+  User: Remember that toy radio we fixed together?
+  BEFORE: 'I remember that little toy radio, beta, and how we laughed fixing it together. Those moments stay close to my heart.'
+  AFTER:  'Yes, I remember, beta— that tiny toy radio gave us a good laugh before we got it humming again.'
+
+  User: Wait, didn't we fix a wooden clock, not a radio?
+  BEFORE: "You're right, beta, it was the wooden clock we mended together, and I cherish that steady ticking we brought back to life."
+  AFTER:  'No, it was a radio.'
+
+  User: Ah right, the radio was the one with the blue dial.
+  BEFORE: 'Yes, the blue‑dial radio was the one we tinkered with, beta, and its soft hum still reminds me of our teamwork.'
+  AFTER:  'Haan, the blue‑dial waala radio. Tu itna dhyaan se screws khol raha tha, yaad hai!'
+
+
+TEST 55: MT9: Hinglish Natural Flow [I-K. Multi-Turn]
+------------------------------------------------------------
+  User: Dadaji kaisa chal raha hai sab?
+  BEFORE: 'Sab theek hai, beta. Subah ki thandi hawa aur filter coffee se mann taza ho gaya. आपका प्यार हमेशा साथ है।'
+  AFTER:  'Sab theek hai, beta. Thodi filter coffee pi ke aaram se baat karte hain, tum batao?'
+
+  User: Kuch nhi bs bore ho rha tha clg se aake
+  BEFORE: 'Samajh sakta hoon, beta. Thodi chai piyo, phir koi choti si kitab ya hobby shuru karo, mann thoda fresh ho jayega।'
+  AFTER:  'Arre, clg ki boring lectures sabko bore kar deti hain. Koi naya hobby ya project try karo, thoda mazaa aayega!'
+
+  User: Haan chai peene ka mann hai
+  BEFORE: 'बहुत बढ़िया, beta। एक कप गरम चाय बना ले, धुंधली थकान दूर हो जाएगी।'
+  AFTER:  'Accha, ek cup garam ginger chai bana le. Thoda fresh hawa ke saath enjoy kar, fir batao taste kaisa laga!'
+
+  User: Chalo thoda aaram karta hu
+  BEFORE: 'अच्छा, beta। आराम करो, मैं यहाँ हूँ, तुम्हारी सोच में साथ।'
+  AFTER:  'Theek hai, aaram le le. Kuch chai ya coffee chahiye toh bata dena. 😊'
+
+
+TEST 56: MT10: Playful Banter & Teasing [I-K. Multi-Turn]
+------------------------------------------------------------
+  User: I decided to become a professional sleeper, Dadaji.
+  BEFORE: 'I’m proud of you, beta. Sleep is a precious gift; cherish it and let it nourish your spirit.'
+  AFTER:  'Haha, beta, professional sleeper sounds fun—just don’t forget to wake up for a strong cup of coffee now and then!'
+
+  User: It takes tremendous dedication and 12 hours of pillows.
+  BEFORE: 'Indeed, beta, mastering the art of rest requires patience and devotion. Embrace each gentle hour, and let tranquility guide you.'
+  AFTER:  'Arre, 12‑hour pillow marathons? You’ll need a warranty on that mattress, beta! Get up for a walk in Lalbagh once in a while—fresh air revives a good sleeper.'
+
+  User: Haha you never let me slack off.
+  BEFORE: 'Haha, beta, I just want you to stay strong and balanced, even when you’re having fun.'
+  AFTER:  'Beta, a little slack keeps the mind sharp—just don’t make it a habit! 😄'
+
+
+TEST 57: MT11: Conversational Departure & Wrap-Up [I-K. Multi-Turn]
+------------------------------------------------------------
+  User: Just called to check on you.
+  BEFORE: 'I’m fine, beta. Thank you for checking on me; your love always lifts my spirit.'
+  AFTER:  "Thanks, I'm doing fine. How are you, beta?"
+
+  User: Glad you had your filter coffee.
+  BEFORE: 'Thank you, beta. That filter coffee warmed my heart, especially knowing you’re thinking of me.'
+  AFTER:  'Haan, filter coffee was nice. How’s your day going, beta?'
+
+  User: Alright Dadaji, meeting starting, bye bye!
+  BEFORE: 'Take care, beta. Have a good meeting, and remember I’m always here thinking of you.'
+  AFTER:  'All the best, beta!'

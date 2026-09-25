@@ -621,7 +621,160 @@
   cursor: not-allowed;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  .room-navbar {
+    padding: 0 10px;
+    height: 52px;
+  }
+
+  .room-back-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .room-back-btn span {
+    display: none;
+  }
+
+  .room-nav-divider {
+    display: none;
+  }
+
+  .room-nav-center {
+    display: none;
+  }
+
+  .room-persona-name {
+    font-size: 14.5px;
+  }
+
+  .room-relation-pill {
+    display: none;
+  }
+
+  .colab-status-badge {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .colab-status-badge span {
+    display: none;
+  }
+
+  .room-vcall-launch-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .room-vcall-launch-btn span {
+    display: none;
+  }
+
+  .room-chat-toggle-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .room-chat-toggle-btn span {
+    display: none;
+  }
+
+  .room-stage-viewport {
+    padding: 14px 12px 20px;
+  }
+
+  .room-presence-center {
+    gap: 10px;
+  }
+
+  .avatar-portrait-circle-wrap {
+    width: 130px;
+    height: 130px;
+    border-width: 3px;
+  }
+
+  .avatar-aura-glow {
+    width: 160px;
+    height: 160px;
+  }
+
+  .avatar-aura-glow.speaking-glow {
+    width: 190px;
+    height: 190px;
+  }
+
+  .avatar-wave-dock {
+    padding: 4px 10px;
+    margin-top: 6px;
+    gap: 8px;
+  }
+
+  .dock-wave-bars {
+    height: 14px;
+  }
+
+  .dock-voice-tag {
+    font-size: 10.5px;
+  }
+
+  .room-vcall-banner-strip {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  .vcall-prominent-banner-btn {
+    width: 100%;
+    max-width: 290px;
+    justify-content: center;
+    font-size: 11.5px;
+    padding: 8px 14px;
+  }
+
+  .active-speech-subtitle {
+    padding: 8px 12px;
+    font-size: 12.5px;
+    line-height: 1.45;
+    border-radius: 12px;
+    max-width: 310px;
+  }
+
+  .voice-mic-interaction-hub {
+    gap: 6px;
+    margin-top: 2px;
+  }
+
+  .giant-mic-btn {
+    width: 58px;
+    height: 58px;
+  }
+
+  .giant-mic-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .mic-caption-label {
+    font-size: 12px;
+    text-align: center;
+    max-width: 280px;
+  }
+
+  .room-quick-prompts {
+    gap: 6px;
+    margin-top: 2px;
+  }
+
+  .prompts-title {
+    font-size: 11px;
+  }
+
+  .room-prompt-pill {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
   .room-chat-drawer {
     width: 100%;
   }
@@ -1361,6 +1514,59 @@
   }
   .vcall-slide-chat-drawer {
     width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .vcall-top-header {
+    height: 52px;
+    padding: 0 14px;
+  }
+  .vcall-cinematic-stage {
+    padding: 6px 12px 90px;
+  }
+  .vcall-portrait-frame {
+    height: min(48vh, 340px);
+    max-width: 94vw;
+    border-radius: 16px;
+  }
+  .vcall-self-pip-card {
+    width: 82px;
+    height: 110px;
+    top: 60px;
+    right: 12px;
+    border-radius: 10px;
+  }
+  .vcall-cinematic-subtitles {
+    bottom: 80px;
+    font-size: 12.5px;
+    padding: 8px 12px;
+    max-width: 90vw;
+  }
+  .vcall-bottom-control-dock {
+    gap: 6px;
+    padding: 6px 10px;
+    bottom: 12px;
+    border-radius: 9999px;
+  }
+  .vcall-dock-action-btn {
+    width: 38px;
+    height: 38px;
+  }
+  .vcall-dock-action-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+  .dock-action-text {
+    display: none;
+  }
+  .vcall-dock-talk-btn {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+  .vcall-dock-talk-btn svg {
+    width: 18px;
+    height: 18px;
   }
 }
 

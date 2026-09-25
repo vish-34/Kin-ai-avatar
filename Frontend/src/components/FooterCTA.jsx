@@ -66,7 +66,7 @@ export default function FooterCTA({ onOpenCreateModal }) {
           <div className="cta-button-group">
             <button onClick={onOpenCreateModal} className="cta-action-primary">
               <Sparkles size={16} />
-              <span>Create Loved One's Avatar</span>
+              <span>Create Your KIN</span>
               <ArrowRight size={15} />
             </button>
           </div>
@@ -89,7 +89,7 @@ export default function FooterCTA({ onOpenCreateModal }) {
             <span className="footer-brand-name">Kin.ai</span>
           </div>
           <p className="footer-tagline">
-            Interactive AI avatars for lost loved ones, grandparents, and parents. Preserving their authentic voice, face, and persona for generations.
+          Preserving the voices, wisdom, and stories of the people who matter most — for the family that comes next.
           </p>
         </div>
 

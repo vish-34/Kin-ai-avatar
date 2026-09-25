@@ -160,10 +160,11 @@ export default function Hero({ onOpenCreateModal }) {
           variants={fadeUpVariants}
           className="hero-subtext"
         >
-          When we lose someone, we lose the way they spoke, reasoned, and advised us.
+          Kin preserves the voice, personality, and memories of the people who matter most,
           <br className="desktop-break" />
-          <strong>Kin.ai</strong> creates an interactive AI avatar from their photos, voice notes,
-          and WhatsApp chats—so you can speak with them in their true voice, face, and persona anytime.
+          built from their WhatsApp voice notes, photos, and stories,
+          <br className="desktop-break" />
+          so the people they loved can always reach them.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -180,7 +181,7 @@ export default function Hero({ onOpenCreateModal }) {
             onClick={onOpenCreateModal}
             className="hero-primary-btn"
           >
-            <span>Create Loved One's Avatar</span>
+            <span>Create Your KIN</span>
             <ArrowRight size={15} />
           </motion.button>
 
@@ -191,7 +192,7 @@ export default function Hero({ onOpenCreateModal }) {
             className="hero-secondary-btn"
           >
             <Sparkles size={14} />
-            <span>Try Live Avatar Demo</span>
+            <span>See How It Works</span>
           </motion.button>
         </motion.div>
       </div>

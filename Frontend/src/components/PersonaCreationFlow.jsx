@@ -117,11 +117,11 @@ export default function PersonaCreationFlow({ onOpenCreateModal }) {
       {/* Interactive Trigger Banner */}
       <div className="studio-trigger-banner">
         <div className="banner-text">
-          <h4>Ready to create your loved one's persona?</h4>
+          <h4>Ready to create your KIN?</h4>
           <p>It takes less than 3 minutes to upload initial context and hear their voice respond.</p>
         </div>
         <button onClick={onOpenCreateModal} className="banner-cta-btn">
-          <span>Start Persona Studio</span>
+          <span>Create Your KIN</span>
           <ArrowRight size={15} />
         </button>
       </div>

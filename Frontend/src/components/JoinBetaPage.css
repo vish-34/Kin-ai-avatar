@@ -1,0 +1,793 @@
+/* JoinBetaPage.css - KIN Beta Application Form Styles */
+
+.join-beta-page-root {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-canvas);
+  border-radius: var(--radius-frame);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 36px 64px;
+}
+
+@media (max-width: 768px) {
+  .join-beta-page-root {
+    padding: 16px 16px 48px;
+    border-radius: 16px;
+  }
+}
+
+.beta-subpage-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 36px;
+}
+
+.beta-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-primary);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.beta-back-btn:hover {
+  background-color: #f4f4f5;
+  border-color: rgba(0, 0, 0, 0.15);
+  transform: translateX(-2px);
+}
+
+.beta-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.beta-login-prompt {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .beta-login-prompt {
+    display: none;
+  }
+}
+
+.beta-header-login-btn {
+  background: #f4f4f5;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.beta-header-login-btn:hover {
+  background-color: #e4e4e7;
+}
+
+.beta-form-container {
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.beta-title-block {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.beta-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #92400e;
+  background: #fef3c7;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 14px;
+  border: 1px solid rgba(217, 119, 6, 0.15);
+}
+
+.beta-main-heading {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+
+.beta-subheading {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.beta-alert-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.beta-alert-box.error {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+}
+
+.beta-actual-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (max-width: 640px) {
+  .beta-actual-form {
+    gap: 16px;
+  }
+
+  .beta-title-block {
+    margin-bottom: 18px;
+  }
+
+  .beta-main-heading {
+    font-size: 21px;
+  }
+}
+
+.form-fieldset {
+  background: #fbfbfd;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  padding: 26px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 640px) {
+  .form-fieldset {
+    padding: 18px 16px;
+  }
+}
+
+.fieldset-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.fieldset-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  background: #18181b;
+  color: #ffffff;
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+
+.fieldset-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-grid-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+@media (max-width: 640px) {
+  .form-grid-two {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-field-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #27272a;
+}
+
+.req-star {
+  color: #e11d48;
+}
+
+.optional-tag {
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--text-light);
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  color: #a1a1aa;
+  pointer-events: none;
+}
+
+.input-with-icon input {
+  padding-left: 40px !important;
+}
+
+.form-field-group input,
+.form-field-group textarea,
+.beta-select-input {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.form-field-group input:focus,
+.form-field-group textarea:focus,
+.beta-select-input:focus {
+  border-color: #18181b;
+  box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.08);
+}
+
+.form-field-group input.has-error,
+.form-field-group textarea.has-error {
+  border-color: #e11d48;
+  background-color: #fff5f5;
+}
+
+.field-error-text {
+  font-size: 11.5px;
+  color: #e11d48;
+  font-weight: 500;
+}
+
+.age-pill-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.age-pill-btn {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #3f3f46;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.age-pill-btn:hover {
+  border-color: #71717a;
+}
+
+.age-pill-btn.selected {
+  background: #18181b;
+  border-color: #18181b;
+  color: #ffffff;
+}
+
+.willingness-radio-group {
+  display: flex;
+  gap: 12px;
+}
+
+.willingness-chip {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.willingness-chip input[type='radio'] {
+  width: auto;
+  accent-color: #18181b;
+}
+
+.willingness-chip.selected {
+  border-color: #18181b;
+  background: #f4f4f5;
+  font-weight: 600;
+}
+
+.beta-submit-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding-top: 10px;
+}
+
+.privacy-micro-notice {
+  font-size: 12.5px;
+  text-align: center;
+  color: var(--text-light);
+  max-width: 580px;
+}
+
+.beta-primary-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #121214;
+  color: #ffffff;
+  border: none;
+  padding: 14px 34px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-primary);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 24px -4px rgba(18, 18, 20, 0.3);
+  transition: all 0.25s ease;
+}
+
+.beta-primary-submit-btn:hover:not(:disabled) {
+  background: #232328;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -4px rgba(18, 18, 20, 0.38);
+}
+
+.beta-primary-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Confirmation Success View */
+.beta-confirmation-card {
+  background: #fbfbfd;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: 44px 36px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 640px) {
+  .beta-confirmation-card {
+    padding: 32px 18px;
+  }
+}
+
+.confirmation-icon-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.confirmation-badge {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #047857;
+  background: #d1fae5;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 16px;
+}
+
+.confirmation-title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.confirmation-body {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 580px;
+  margin-bottom: 28px;
+}
+
+.confirmation-details-box {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.detail-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.detail-val {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.confirmation-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.confirm-home-btn {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.confirm-home-btn:hover {
+  background: #f4f4f5;
+}
+
+.confirm-login-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #18181b;
+  border: none;
+  padding: 12px 26px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.confirm-login-btn:hover {
+  background: #27272a;
+}
+
+/* Mobile-only refinement
+   IMPORTANT: desktop/tablet styles above remain unchanged. */
+@media (max-width: 640px) {
+  .join-beta-page-root {
+    width: 100%;
+    min-height: 100dvh;
+    padding: 10px 12px 28px;
+    border-radius: 0;
+  }
+
+  .beta-subpage-header {
+    min-height: 38px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+
+  .beta-back-btn {
+    gap: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 999px;
+  }
+
+  .beta-header-right {
+    gap: 6px;
+  }
+
+  .beta-header-login-btn {
+    padding: 6px 11px;
+    font-size: 12px;
+  }
+
+  .beta-title-block {
+    margin-bottom: 22px;
+    padding: 0 4px;
+  }
+
+  .beta-tag-pill {
+    gap: 5px;
+    font-size: 10px;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+  }
+
+  .beta-main-heading {
+    font-size: clamp(20px, 6vw, 24px);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin-bottom: 7px;
+  }
+
+  .beta-subheading {
+    max-width: 360px;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+
+  .beta-alert-box {
+    gap: 8px;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+
+  .beta-actual-form {
+    gap: 12px;
+  }
+
+  .form-fieldset {
+    width: 100%;
+    padding: 15px 13px;
+    border-radius: 16px;
+    gap: 14px;
+    box-shadow: none;
+  }
+
+  .fieldset-header {
+    gap: 8px;
+    padding-bottom: 10px;
+  }
+
+  .fieldset-num {
+    flex: 0 0 auto;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 5px;
+  }
+
+  .fieldset-header h3 {
+    font-size: 13.5px;
+    line-height: 1.25;
+  }
+
+  .form-grid-two {
+    gap: 13px;
+  }
+
+  .form-field-group {
+    gap: 6px;
+  }
+
+  .form-field-group label {
+    font-size: 11.5px;
+    line-height: 1.3;
+  }
+
+  .form-field-group input,
+  .form-field-group textarea,
+  .beta-select-input {
+    min-height: 42px;
+    padding: 9px 11px;
+    border-radius: 9px;
+    font-size: 13px;
+  }
+
+  .input-with-icon input {
+    padding-left: 36px !important;
+  }
+
+  .input-icon {
+    left: 12px;
+  }
+
+  .field-error-text {
+    font-size: 10.5px;
+  }
+
+  .age-pill-selector {
+    gap: 6px;
+  }
+
+  .age-pill-btn {
+    padding: 6px 10px;
+    min-height: 34px;
+    font-size: 11px;
+  }
+
+  .willingness-radio-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+  }
+
+  .willingness-chip {
+    min-height: 38px;
+    padding: 8px 9px;
+    gap: 6px;
+    border-radius: 9px;
+    font-size: 11.5px;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .willingness-chip input[type='radio'] {
+    margin: 0;
+  }
+
+  .beta-submit-bar {
+    gap: 12px;
+    padding-top: 4px;
+  }
+
+  .privacy-micro-notice {
+    max-width: 330px;
+    font-size: 10.5px;
+    line-height: 1.45;
+  }
+
+  .beta-primary-submit-btn {
+    width: 100%;
+    min-height: 44px;
+    padding: 11px 18px;
+    font-size: 13.5px;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px -5px rgba(18, 18, 20, 0.28);
+  }
+
+  /* Correct selectors for the existing confirmation view */
+  .beta-confirmation-card {
+    width: 100%;
+    padding: 28px 16px;
+    border-radius: 18px;
+  }
+
+  .confirmation-icon-circle {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 15px;
+  }
+
+  .confirmation-badge {
+    font-size: 10px;
+    padding: 4px 10px;
+    margin-bottom: 11px;
+  }
+
+  .confirmation-title {
+    font-size: clamp(21px, 6vw, 25px);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .confirmation-body {
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+
+  .confirmation-details-box {
+    max-width: none;
+    padding: 13px 14px;
+    border-radius: 11px;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .detail-row {
+    gap: 8px;
+    font-size: 11.5px;
+  }
+
+  .detail-val {
+    text-align: right;
+  }
+
+  .confirmation-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .confirm-home-btn,
+  .confirm-login-btn {
+    width: 100%;
+    min-height: 42px;
+    justify-content: center;
+    padding: 10px 16px;
+    font-size: 12.5px;
+  }
+}
+
+/* Very narrow phones: reduce density without making controls tiny */
+@media (max-width: 380px) {
+  .join-beta-page-root {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .beta-title-block {
+    padding: 0 2px;
+  }
+
+  .form-fieldset {
+    padding: 14px 11px;
+  }
+
+  .willingness-radio-group {
+    grid-template-columns: 1fr;
+  }
+
+  .willingness-chip {
+    justify-content: flex-start;
+  }
+}

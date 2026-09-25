@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X, Sparkles, LogIn, LogOut, User, ShieldCheck, LayoutDashboard } from 'lucide-react';
 
-const navItems = [
+const publicNavItems = [
   { name: 'How It Works', href: '#how-it-works', id: 'how-it-works' },
   { name: 'Live Avatar', href: '#live-avatar', id: 'live-avatar' },
   { name: 'Persona Studio', href: '#persona-studio', id: 'persona-studio' },
@@ -10,7 +10,16 @@ const navItems = [
   { name: 'FAQs', href: '#faqs', id: 'faqs' },
 ];
 
-export default function Navbar({ onOpenCreateModal, onOpenVault }) {
+export default function Navbar({
+  onOpenCreateModal,
+  onOpenVault,
+  onNavigateToJoinBeta,
+  onNavigateToLogin,
+  onNavigateToDashboard,
+  onNavigateToConsent,
+  currentUser = null,
+  onLogout,
+}) {
   const [activeTab, setActiveTab] = useState('How It Works');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,7 +34,7 @@ export default function Navbar({ onOpenCreateModal, onOpenVault }) {
       if (isAnimatingScroll.current) return;
 
       const scrollPosition = window.scrollY + 180;
-      for (const item of navItems) {
+      for (const item of publicNavItems) {
         const section = document.getElementById(item.id);
         if (section) {
           const top = section.offsetTop;
@@ -145,7 +154,7 @@ export default function Navbar({ onOpenCreateModal, onOpenVault }) {
 
           {/* Center Nav Links */}
           <nav className="nav-links-desktop">
-            {navItems.map((item) => {
+            {publicNavItems.map((item) => {
               const isActive = activeTab === item.name;
               return (
                 <a
@@ -165,31 +174,90 @@ export default function Navbar({ onOpenCreateModal, onOpenVault }) {
                 </a>
               );
             })}
+
+            {/* Authenticated Links inside Center Nav */}
+            {currentUser && (
+              <>
+                <button
+                  onClick={onNavigateToDashboard}
+                  className="nav-link text-btn"
+                  title="Beta participant dashboard"
+                >
+                  Dashboard
+                </button>
+                <button
+                  onClick={onNavigateToConsent}
+                  className="nav-link text-btn"
+                  title="Review beta consent and privacy agreement"
+                >
+                  Consent
+                </button>
+              </>
+            )}
           </nav>
 
-          {/* Right CTA */}
+          {/* Right CTA Actions */}
           <div className="navbar-actions">
-            {onOpenVault && (
-              <motion.button
-                whileHover={{ scale: 1.03, y: -1 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={onOpenVault}
-                className="navbar-vault-btn"
-                title="View your saved avatars"
-              >
-                <span>Family Vault</span>
-              </motion.button>
-            )}
+            {!currentUser ? (
+              /* Public Visitor State */
+              <>
+                <button
+                  onClick={onNavigateToLogin}
+                  className="navbar-login-subtle-btn"
+                  title="Sign in with beta credentials"
+                >
+                  <LogIn size={14} />
+                  <span>Login</span>
+                </button>
 
-            <motion.button 
-              whileHover={{ scale: 1.03, y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={onOpenCreateModal}
-              className="cta-pill-btn"
-            >
-              <Sparkles size={14} />
-              <span>Create Loved One's Avatar</span>
-            </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.03, y: -1 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={onNavigateToJoinBeta}
+                  className="cta-pill-btn beta-cta"
+                  title="Apply for early cohort access"
+                >
+                  <Sparkles size={14} />
+                  <span className="desktop-nav-cta-text">Join the Beta</span>
+                  <span className="mobile-nav-cta-text">Beta</span>
+                </motion.button>
+              </>
+            ) : (
+              /* Authenticated Beta User State */
+              <>
+                {onOpenVault && (
+                  <motion.button
+                    whileHover={{ scale: 1.03, y: -1 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={onOpenVault}
+                    className="navbar-vault-btn"
+                    title="View your saved avatars"
+                  >
+                    <span>Family Vault</span>
+                  </motion.button>
+                )}
+
+                <motion.button 
+                  whileHover={{ scale: 1.03, y: -1 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={onOpenCreateModal}
+                  className="cta-pill-btn"
+                  title="Create a new KIN persona"
+                >
+                  <Sparkles size={14} />
+                  <span className="desktop-nav-cta-text">Create Your KIN</span>
+                  <span className="mobile-nav-cta-text">Create</span>
+                </motion.button>
+
+                <button
+                  onClick={onLogout}
+                  className="navbar-logout-icon-btn"
+                  title={`Signed in as ${currentUser.name} — Sign Out`}
+                >
+                  <LogOut size={16} />
+                </button>
+              </>
+            )}
 
             {/* Mobile hamburger */}
             <button 
@@ -212,7 +280,7 @@ export default function Navbar({ onOpenCreateModal, onOpenVault }) {
               className="mobile-menu-container"
             >
               <div className="mobile-menu-list">
-                {navItems.map((item) => (
+                {publicNavItems.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
@@ -223,27 +291,81 @@ export default function Navbar({ onOpenCreateModal, onOpenVault }) {
                     {activeTab === item.name && <span className="mobile-active-dot" />}
                   </a>
                 ))}
-                {onOpenVault && (
-                  <button
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      onOpenVault();
-                    }}
-                    className="navbar-vault-btn mobile-vault-btn"
-                  >
-                    <span>Family Vault</span>
-                  </button>
+
+                {currentUser ? (
+                  <>
+                    <button
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        onNavigateToDashboard();
+                      }}
+                      className="mobile-nav-link text-btn"
+                    >
+                      <span>Beta Dashboard</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        onNavigateToConsent();
+                      }}
+                      className="mobile-nav-link text-btn"
+                    >
+                      <span>Consent Agreement</span>
+                    </button>
+                    {onOpenVault && (
+                      <button
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          onOpenVault();
+                        }}
+                        className="navbar-vault-btn mobile-vault-btn"
+                      >
+                        <span>Family Vault</span>
+                      </button>
+                    )}
+                    <button 
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        onOpenCreateModal();
+                      }}
+                      className="cta-pill-btn mobile-cta"
+                    >
+                      <Sparkles size={14} />
+                      <span>Create Your KIN</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        onLogout();
+                      }}
+                      className="mobile-nav-link text-btn logout-text"
+                    >
+                      <span>Sign Out ({currentUser.name})</span>
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        onNavigateToLogin();
+                      }}
+                      className="mobile-nav-link text-btn"
+                    >
+                      <span>Beta Sign In</span>
+                    </button>
+                    <button 
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        onNavigateToJoinBeta();
+                      }}
+                      className="cta-pill-btn mobile-cta beta-cta"
+                    >
+                      <Sparkles size={14} />
+                      <span>Join the Beta</span>
+                    </button>
+                  </>
                 )}
-                <button 
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenCreateModal();
-                  }}
-                  className="cta-pill-btn mobile-cta"
-                >
-                  <Sparkles size={14} />
-                  <span>Create Loved One's Avatar</span>
-                </button>
               </div>
             </motion.div>
           )}
@@ -252,3 +374,4 @@ export default function Navbar({ onOpenCreateModal, onOpenVault }) {
     </div>
   );
 }
+

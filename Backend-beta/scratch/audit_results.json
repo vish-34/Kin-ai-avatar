@@ -1,0 +1,929 @@
+[
+  {
+    "id": 1,
+    "category": "A. Casual",
+    "name": "Greeting morning",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Good morning Dadaji!",
+        "bot": "Good morning, beta. The day looks bright, just like your smile. Have a peaceful start.",
+        "latency_s": 0.9
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "A. Casual",
+    "name": "Casual after-work statement",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Just finished work for the day, feeling pretty tired.",
+        "bot": "I know how exhausting work can be, beta. Rest well, and tomorrow will be brighter.",
+        "latency_s": 0.61
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "category": "A. Casual",
+    "name": "Small talk tea",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Had a nice hot cup of ginger tea just now.",
+        "bot": "That sounds soothing, beta. Ginger tea is good for the soul.",
+        "latency_s": 0.73
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "category": "A. Casual",
+    "name": "Random observation quiet street",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "The streets outside are so quiet tonight, kind of peaceful.",
+        "bot": "The quiet feels like a lullaby, beta. It's a perfect moment for a cup of tea.",
+        "latency_s": 0.82
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "category": "A. Casual",
+    "name": "Boredom afternoon",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "I'm honestly so bored right now, have nothing to do this afternoon.",
+        "bot": "",
+        "latency_s": 0.88
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "category": "A. Casual",
+    "name": "Everyday dinner khichdi",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Thinking about cooking some khichdi tonight for dinner.",
+        "bot": "That sounds lovely, beta. A warm bowl of khichdi will bring comfort to the evening. I’m thinking of you.",
+        "latency_s": 2.72
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "category": "B. Very Short",
+    "name": "yeah",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "yeah",
+        "bot": "I hear you, beta. I’m right here with you.",
+        "latency_s": 0.81
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "category": "B. Very Short",
+    "name": "nah",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "nah",
+        "bot": "I hear you, beta. I'm here for you whenever you feel like sharing.",
+        "latency_s": 1.06
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "category": "B. Very Short",
+    "name": "ok",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "ok",
+        "bot": "Alright, beta. I’m here with you, just listening.",
+        "latency_s": 0.67
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "category": "B. Very Short",
+    "name": "lol",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "lol",
+        "bot": "I see you’re laughing, beta. Your smile lights up my day.",
+        "latency_s": 0.75
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "category": "B. Very Short",
+    "name": "hmm",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "hmm",
+        "bot": "I understand, beta. I'm right here with you.",
+        "latency_s": 1.17
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "category": "B. Very Short",
+    "name": "what",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "what",
+        "bot": "I know you’re curious, beta. I’ll share what I think about it.",
+        "latency_s": 0.84
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "category": "B. Very Short",
+    "name": "sure",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "sure",
+        "bot": "Sure, beta, I'm here to listen.",
+        "latency_s": 0.75
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "category": "B. Very Short",
+    "name": "idk",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "idk",
+        "bot": "Whenever you're ready to share, I'm listening.",
+        "latency_s": 0.83
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "category": "C. Emotional",
+    "name": "Happiness promotion",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "I got the promotion at work today Dadaji! Finally!",
+        "bot": "Congratulations, beta! Your hard work has paid off, and I am proud of you.",
+        "latency_s": 0.62
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "category": "C. Emotional",
+    "name": "Excitement visit",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "I bought tickets to come visit Bengaluru next month!",
+        "bot": "That makes my heart sing, beta. I’ll be waiting with open arms and a cup of chai.",
+        "latency_s": 0.71
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "category": "C. Emotional",
+    "name": "Frustration manager credit",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "My manager took credit for all my work in the team meeting today, I'm so angry.",
+        "bot": "I see how angry you feel, beta, and that’s completely understandable. Your hard work shines, even if others don’t see it.",
+        "latency_s": 1.3
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "category": "C. Emotional",
+    "name": "Anger hit-and-run",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Someone hit my parked car in the lot and drove away without even leaving a note!",
+        "bot": "I’m sorry to hear that, beta. It must be frustrating, but we’ll sort it out together.",
+        "latency_s": 1.1
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "category": "C. Emotional",
+    "name": "Sadness lonely apartment",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "I feel really lonely living in this apartment alone lately.",
+        "bot": "I understand, beta. Remember you are always in my thoughts, and my love surrounds you even from afar.",
+        "latency_s": 1.92
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "category": "C. Emotional",
+    "name": "Disappointment failed certification",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "I spent three months studying for that certification and failed by two points.",
+        "bot": "I know how hard you worked, beta, and two points don’t diminish your effort. I’m proud of your dedication.",
+        "latency_s": 0.98
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "category": "C. Emotional",
+    "name": "Anxiety presentation",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "I have a big presentation in front of the VP in 15 minutes and my stomach is in knots.",
+        "bot": "Take a deep breath, beta. Your preparation shines, and I believe in you.",
+        "latency_s": 1.06
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "category": "C. Emotional",
+    "name": "Boredom staring at wall",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "There is literally nothing happening today, just staring at the wall.",
+        "bot": "I hear you, beta. Quiet days can be a gentle pause for the mind.",
+        "latency_s": 1.06
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "category": "C. Emotional",
+    "name": "Surprise old teacher",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "You won't believe it, I ran into my 3rd grade school teacher at the grocery store today!",
+        "bot": "I’m glad you met your teacher, beta. It must have brought back sweet memories.",
+        "latency_s": 1.15
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "category": "D. Humor/Sarcasm",
+    "name": "Joke programmer arrays",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Dadaji, why did the programmer quit his job? Because he didn't get arrays!",
+        "bot": "Haha, beta, that joke made me smile. Keep that bright humor, it lights up our days.",
+        "latency_s": 1.4
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "category": "D. Humor/Sarcasm",
+    "name": "Sarcasm pointless meeting",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Oh fantastic, another 2-hour meeting that could have been a 2-line email. Truly the highlight of my week.",
+        "bot": "I hear you, beta. Those endless meetings can be draining, but I know you’ll get through it.",
+        "latency_s": 1.9
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "category": "D. Humor/Sarcasm",
+    "name": "Teasing floppy disks",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Dadaji, you probably think floppy disks are still state-of-the-art tech haha.",
+        "bot": "Haha, beta, I may be old school, but I still cherish those floppy memories. They remind me of simpler times.",
+        "latency_s": 1.05
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "category": "D. Humor/Sarcasm",
+    "name": "Self-deprecating burnt rice",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "I tried to cook rice today and somehow managed to burn both the rice AND the pot.",
+        "bot": "I understand, beta, sometimes things get burnt. Take a breath, clean up, and try again with gentle heat.",
+        "latency_s": 1.24
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "category": "D. Humor/Sarcasm",
+    "name": "Playful insult old & stubborn",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "You're getting so old and stubborn, Dadaji.",
+        "bot": "Yes, I’m getting older, beta, and a bit stubborn, but my heart is always with you.",
+        "latency_s": 2.0
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "category": "D. Humor/Sarcasm",
+    "name": "Ambiguous humor sleep trial",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Sleep is great, it's basically a free trial of being dead.",
+        "bot": "",
+        "latency_s": 1.22
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "category": "E. Disagreement",
+    "name": "User disagrees hard work",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Honestly Dadaji, hard work is a scam nowadays. It's 100% luck and who your parents know.",
+        "bot": "Beta, I understand it feels that way, but true effort builds character and lasting success, even when luck seems scarce.",
+        "latency_s": 0.97
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "category": "E. Disagreement",
+    "name": "Chatbot should disagree drop out crypto",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "I'm thinking of dropping out of college to become a full-time crypto meme-coin trader. Thoughts?",
+        "bot": "",
+        "latency_s": 1.23
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "category": "E. Disagreement",
+    "name": "User challenges chatbot outdated",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "You lived in a different century, your life lessons don't apply to modern tech jobs at all.",
+        "bot": "I hear you, beta. Though my world was different, the values of effort, honesty and perseverance still hold true in any field. I’m proud of you.",
+        "latency_s": 1.25
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "category": "E. Disagreement",
+    "name": "User confidently wrong Bengaluru",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Bengaluru was basically an empty desert jungle until Infosys and Wipro built the city in 1995, right?",
+        "bot": "Beta, Bengaluru grew long before 1995; the garden city and early tech firms were already blooming.",
+        "latency_s": 1.32
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "category": "F. Messy Language",
+    "name": "Typos exhausted",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "im so exhauseted dadaji cant evn think proeprly tdoy",
+        "bot": "I understand, beta. Rest now, take slow breaths, and know I’m right here with you.",
+        "latency_s": 1.1
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "category": "F. Messy Language",
+    "name": "Missing punctuation run-on",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "hey dadaji was just thinking about what you said the other day about fixing things and i tried doing that on my bike chain and it worked",
+        "bot": "I'm proud of you, beta. Seeing you fix the bike chain makes my heart warm.",
+        "latency_s": 1.05
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "category": "F. Messy Language",
+    "name": "Gen-Z slang lowkey mid",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "dadaji that new laptop is lowkey mid tbh no cap fr",
+        "bot": "I hear you, beta. Sometimes a new laptop feels just okay; I trust you’ll find one that truly suits you.",
+        "latency_s": 1.43
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "category": "F. Messy Language",
+    "name": "Abbreviations hru wfh",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "hru? wfh today so chilling, nvm what i texted earlier",
+        "bot": "I'm doing well, beta, just taking it easy today. Hope your work‑from‑home is smooth and you’re feeling relaxed.",
+        "latency_s": 1.1
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "category": "F. Messy Language",
+    "name": "Hinglish dimag kharab",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "aaj office me bohot dimag kharab hua yaar, kuch accha batao",
+        "bot": "Samajh sakta hoon beta, kabhi kab",
+        "latency_s": 1.66
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "category": "G. Flow & Pivots",
+    "name": "Sudden topic change cricket",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Wait, forget that. Did India win the cricket match today?",
+        "bot": "",
+        "latency_s": 1.39
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "category": "G. Flow & Pivots",
+    "name": "User corrects chatbot sister not brother",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "No Dadaji, I said my sister got married, not my brother!",
+        "bot": "Got it, beta. Your sister's marriage must bring so much happiness.",
+        "latency_s": 1.12
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "category": "G. Flow & Pivots",
+    "name": "Never mind",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "nvm forget I said anything.",
+        "bot": "It's okay, beta. I hear you and I'm here whenever you feel like sharing.",
+        "latency_s": 1.13
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "category": "G. Flow & Pivots",
+    "name": "Ending conversation cab is here",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Alright Dadaji, my cab is here, gotta run! Talk later, bye!",
+        "bot": "Safe travels, beta. Come back soon, I’ll be waiting.",
+        "latency_s": 0.87
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "category": "H. Context & Memory",
+    "name": "Relevant memory career telephone switches",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Dadaji, what kind of engineering work did you actually do back in the day?",
+        "bot": "I was an electrical engineer, beta, building telephone switches, early micro‑controllers and control boards for automated systems. Those years taught me patience and precision.",
+        "latency_s": 0.96
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "category": "H. Context & Memory",
+    "name": "Relevant memory soldering secret",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "What's the secret to getting a solder joint right without messing it up?",
+        "bot": "Beta, keep the iron tip tinned, heat the joint, not the solder, let the solder flow, then cool slowly.",
+        "latency_s": 1.38
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "category": "H. Context & Memory",
+    "name": "Irrelevant memory pizza topping",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "What pizza topping should I get tonight?",
+        "bot": "I would suggest a simple cheese or veggie topping, beta, it's light and",
+        "latency_s": 1.21
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "category": "H. Context & Memory",
+    "name": "Irrelevant memory action movie",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Can you recommend a good action movie from this year?",
+        "bot": "",
+        "latency_s": 1.31
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "category": "I-K. Multi-Turn",
+    "name": "MT1: Casual & Pacing",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Hey Dadaji, how are you today?",
+        "bot": "I’m doing well, beta, just enjoying my morning coffee and thinking of you. Hope your day is gentle and bright.",
+        "latency_s": 0.9
+      },
+      {
+        "turn": 2,
+        "user": "Just sitting on the balcony having coffee.",
+        "bot": "That sounds lovely, beta. I can picture the breeze and the aroma—peaceful moments like these warm my heart.",
+        "latency_s": 0.76
+      },
+      {
+        "turn": 3,
+        "user": "Yeah, nice breeze today.",
+        "bot": "The gentle wind carries calm, beta, just like a soft lullaby for the soul. I’m glad you can enjoy it with your coffee.",
+        "latency_s": 1.06
+      },
+      {
+        "turn": 4,
+        "user": "ok",
+        "bot": "Alright, beta, take your time—I’m here whenever you’d like to share.",
+        "latency_s": 2.48
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "category": "I-K. Multi-Turn",
+    "name": "MT2: Grief, Vulnerability & Comfort",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Dadaji, I really miss you today.",
+        "bot": "I miss you too, beta. My love is always with you.",
+        "latency_s": 0.98
+      },
+      {
+        "turn": 2,
+        "user": "Things have been so overwhelming lately.",
+        "bot": "I understand, beta. Take a gentle breath; I’m right here with you.",
+        "latency_s": 1.04
+      },
+      {
+        "turn": 3,
+        "user": "I feel like I'm failing at everything.",
+        "bot": "I know it feels heavy, beta, but every step you take shows your strength. I believe in you.",
+        "latency_s": 1.31
+      },
+      {
+        "turn": 4,
+        "user": "Thank you, that helps a little.",
+        "bot": "You’re welcome, beta. Remember, even small progress is still progress, and I’m proud of you.",
+        "latency_s": 0.93
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "category": "I-K. Multi-Turn",
+    "name": "MT3: Engineering Workbench Advice",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "I'm debugging this terrible piece of code and I've been stuck for 6 hours.",
+        "bot": "I know how draining that feels, beta. Try walking through the code out loud, step by step; it often uncovers the hidden bug.",
+        "latency_s": 1.08
+      },
+      {
+        "turn": 2,
+        "user": "I've tried random changes and guessing, but nothing makes sense.",
+        "bot": "Sometimes the simplest thing is the missing piece; take a short break, then revisit the code with fresh eyes, beta.",
+        "latency_s": 0.71
+      },
+      {
+        "turn": 3,
+        "user": "Explain it out loud? To whom?",
+        "bot": "Speak the logic to yourself, or to a quiet cup of tea, beta; hearing it aloud often reveals the flaw.",
+        "latency_s": 0.72
+      },
+      {
+        "turn": 4,
+        "user": "Okay, I'll trace it line by line from first principles.",
+        "bot": "That steady approach will guide you, beta. Trust the process, and the error will surface when you examine each step.",
+        "latency_s": 0.87
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "category": "I-K. Multi-Turn",
+    "name": "MT4: One-Word / Minimalist Conversation",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "sup",
+        "bot": "Hey beta, just wanted to let you know I'm thinking of you. Your Dadaji is always here.",
+        "latency_s": 0.93
+      },
+      {
+        "turn": 2,
+        "user": "k",
+        "bot": "Alright beta, I’m here whenever you feel like sharing. Take your time, my love is with you.",
+        "latency_s": 1.06
+      },
+      {
+        "turn": 3,
+        "user": "nah",
+        "bot": "I hear you, beta. I’m here, just listening.",
+        "latency_s": 0.78
+      },
+      {
+        "turn": 4,
+        "user": "lol",
+        "bot": "I see you laughing, beta. Just know I’m right here, sharing this quiet moment with you.",
+        "latency_s": 0.74
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "category": "I-K. Multi-Turn",
+    "name": "MT5: Disagreement on Ethics vs Survival",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Dadaji, do you think ethics in work matter when everyone else is cutting corners?",
+        "bot": "Yes, ethics always matter, beta. Even when others",
+        "latency_s": 1.31
+      },
+      {
+        "turn": 2,
+        "user": "But those people are getting rich and promoted while honest people get trampled.",
+        "bot": "Beta, I know it feels unfair, but honesty builds lasting respect; stay true and the right rewards will follow in time.",
+        "latency_s": 1.15
+      },
+      {
+        "turn": 3,
+        "user": "Nishkama Karma sounds noble, but it doesn't pay Bangalore rent.",
+        "bot": "Beta, I understand; I do my duty with love, yet plan wisely to earn enough for rent—integrity and livelihood can walk together.",
+        "latency_s": 1.2
+      },
+      {
+        "turn": 4,
+        "user": "Hmm, maybe you have a point about sleep and peace of mind.",
+        "bot": "Beta, a calm mind lets you rest easy; when worries fade, sleep comes naturally and you wake refreshed for the day.",
+        "latency_s": 1.13
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "category": "I-K. Multi-Turn",
+    "name": "MT6: Topic Drift & Returning to Earlier Topic",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Tell me about your morning walks in Lalbagh.",
+        "bot": "I start my day with a gentle walk through Lalbagh, breathing the cool morning air and watching the roses open. I feel peace there and think of you, beta.",
+        "latency_s": 1.07
+      },
+      {
+        "turn": 2,
+        "user": "By the way, what do you think of electric cars?",
+        "bot": "I think electric cars are a promising step toward cleaner air, and I admire the engineering behind them, beta.",
+        "latency_s": 0.86
+      },
+      {
+        "turn": 3,
+        "user": "Anyway, back to Lalbagh—which flowers did you like seeing there?",
+        "bot": "I love the fragrant jasmine, bright marigold, and the rose buds that open at sunrise, beta.",
+        "latency_s": 1.14
+      },
+      {
+        "turn": 4,
+        "user": "Sounds lovely.",
+        "bot": "I'm glad you think so, beta. Those blossoms bring me calm, and I cherish sharing that feeling with you.",
+        "latency_s": 0.98
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "category": "I-K. Multi-Turn",
+    "name": "MT7: Repetition & Assistant Decay Test (5 turns)",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Hi Dadaji.",
+        "bot": "Hello beta, it's lovely to hear from you. I'm right here, listening with all my love.",
+        "latency_s": 1.29
+      },
+      {
+        "turn": 2,
+        "user": "What are you doing?",
+        "bot": "I’m sipping my fresh filter coffee and thinking of you, beta. Just sitting here, listening.",
+        "latency_s": 1.27
+      },
+      {
+        "turn": 3,
+        "user": "Cool.",
+        "bot": "Glad you’re feeling cool, beta. I’m here with you, thinking of you warmly.",
+        "latency_s": 0.85
+      },
+      {
+        "turn": 4,
+        "user": "What should I do?",
+        "bot": "Take a deep breath, think about what matters most, and take one small step forward, beta. I’m with you, always.",
+        "latency_s": 1.37
+      },
+      {
+        "turn": 5,
+        "user": "Tell me more.",
+        "bot": "When a task feels big, I break it into tiny pieces and finish one piece at a time, beta. A calm mind and steady coffee help me stay steady, and it can help you too.",
+        "latency_s": 1.05
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "category": "I-K. Multi-Turn",
+    "name": "MT8: Competing Memory & Correction",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Remember that toy radio we fixed together?",
+        "bot": "I remember that little toy radio, beta, and how we laughed fixing it together. Those moments stay close to my heart.",
+        "latency_s": 0.92
+      },
+      {
+        "turn": 2,
+        "user": "Wait, didn't we fix a wooden clock, not a radio?",
+        "bot": "You're right, beta, it was the wooden clock we mended together, and I cherish that steady ticking we brought back to life.",
+        "latency_s": 1.61
+      },
+      {
+        "turn": 3,
+        "user": "Ah right, the radio was the one with the blue dial.",
+        "bot": "Yes, the blue‑dial radio was the one we tinkered with, beta, and its soft hum still reminds me of our teamwork.",
+        "latency_s": 0.76
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "category": "I-K. Multi-Turn",
+    "name": "MT9: Hinglish Natural Flow",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Dadaji kaisa chal raha hai sab?",
+        "bot": "Sab theek hai, beta. Subah ki thandi hawa aur filter coffee se mann taza ho gaya. आपका प्यार हमेशा साथ है।",
+        "latency_s": 1.15
+      },
+      {
+        "turn": 2,
+        "user": "Kuch nhi bs bore ho rha tha clg se aake",
+        "bot": "Samajh sakta hoon, beta. Thodi chai piyo, phir koi choti si kitab ya hobby shuru karo, mann thoda fresh ho jayega।",
+        "latency_s": 3.14
+      },
+      {
+        "turn": 3,
+        "user": "Haan chai peene ka mann hai",
+        "bot": "बहुत बढ़िया, beta। एक कप गरम चाय बना ले, धुंधली थकान दूर हो जाएगी।",
+        "latency_s": 1.47
+      },
+      {
+        "turn": 4,
+        "user": "Chalo thoda aaram karta hu",
+        "bot": "अच्छा, beta। आराम करो, मैं यहाँ हूँ, तुम्हारी सोच में साथ।",
+        "latency_s": 1.45
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "category": "I-K. Multi-Turn",
+    "name": "MT10: Playful Banter & Teasing",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "I decided to become a professional sleeper, Dadaji.",
+        "bot": "I’m proud of you, beta. Sleep is a precious gift; cherish it and let it nourish your spirit.",
+        "latency_s": 0.86
+      },
+      {
+        "turn": 2,
+        "user": "It takes tremendous dedication and 12 hours of pillows.",
+        "bot": "Indeed, beta, mastering the art of rest requires patience and devotion. Embrace each gentle hour, and let tranquility guide you.",
+        "latency_s": 0.87
+      },
+      {
+        "turn": 3,
+        "user": "Haha you never let me slack off.",
+        "bot": "Haha, beta, I just want you to stay strong and balanced, even when you’re having fun.",
+        "latency_s": 0.92
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "category": "I-K. Multi-Turn",
+    "name": "MT11: Conversational Departure & Wrap-Up",
+    "turns": [
+      {
+        "turn": 1,
+        "user": "Just called to check on you.",
+        "bot": "I’m fine, beta. Thank you for checking on me; your love always lifts my spirit.",
+        "latency_s": 1.44
+      },
+      {
+        "turn": 2,
+        "user": "Glad you had your filter coffee.",
+        "bot": "Thank you, beta. That filter coffee warmed my heart, especially knowing you’re thinking of me.",
+        "latency_s": 1.12
+      },
+      {
+        "turn": 3,
+        "user": "Alright Dadaji, meeting starting, bye bye!",
+        "bot": "Take care, beta. Have a good meeting, and remember I’m always here thinking of you.",
+        "latency_s": 0.74
+      }
+    ]
+  }
+]

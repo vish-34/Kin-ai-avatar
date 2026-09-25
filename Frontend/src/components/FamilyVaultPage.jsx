@@ -10,7 +10,8 @@ import {
   Heart,
   User,
   RotateCcw,
-  Video
+  Video,
+  FolderLock
 } from 'lucide-react';
 import { getVaultAvatars, deleteAvatarFromVault } from '../utils/vaultStorage';
 import { fetchPersonas, deleteAvatarOnBackend } from '../services/api';
@@ -170,7 +171,7 @@ export default function FamilyVaultPage({
               <span>Persona Studio</span>
             </button>
             <button className="switcher-tab active" title="Currently viewing Family Vault">
-              <span className="switcher-dot" />
+              <FolderLock size={14} />
               <span>Family Vault ({avatars.length})</span>
             </button>
           </div>

@@ -20,7 +20,8 @@ import {
   FileText,
   Edit3,
   Trash2,
-  Paperclip
+  Paperclip,
+  FolderLock
 } from 'lucide-react';
 import { saveAvatarToVault } from '../utils/vaultStorage';
 import { createAvatarOnBackend } from '../services/api';
@@ -123,51 +124,6 @@ export default function CreateAvatarPage({ onBackToHome, onNavigateToVault, onAv
     }));
   };
 
-  // Load Preset Demo Data
-  const handleLoadSampleGrandpa = () => {
-    setFormData((prev) => ({
-      ...prev,
-      name: 'Ramesh Vance Sharma',
-      callingName: 'Dadaji',
-      relation: 'Grandfather',
-      lifespan: '1948 – 2023',
-      hometown: 'Bengaluru, India',
-      personalityTraits: {
-        warmth: 95,
-        humor: 75,
-        resilience: 95,
-        storytelling: 85,
-        calmness: 90,
-      },
-      personalitySummary:
-        'A deeply calm, philosophical soul who worked at the telegraph office and later precision tooling. Always gave gentle advice using gardening metaphors and advised never to panic when money is tight.',
-      catchphrases: [
-        'Sab theek ho jayega, beta',
-        'Take things one step at a time',
-        'You buy good bones and build the rest with patience',
-      ],
-      coreMemories:
-        'Taught us how to fix bicycle chains on Sunday mornings; planted a mango sapling in 1982 that still shades the courtyard; always drank ginger chai at 5 PM sharp.',
-      whatsappFileName: 'WhatsApp_Chat_with_Dadaji.txt',
-      whatsappMessagesCount: 1420,
-      whatsappParsedData: {
-        messageCount: 1420,
-        voiceNotesCount: 26,
-        sentiment: 'Reassuring & Loving',
-        frequentTerms: ['beta', 'chai', 'gardening', 'aashirvaad', 'stay calm'],
-      },
-      contextDocuments: [
-        { id: 1, name: 'Grandpa_Memories_and_Recipes.pdf', size: '1.4 MB', type: 'PDF' },
-        { id: 2, name: '1974_Precision_Foundry_Journals.txt', size: '48 KB', type: 'TXT' },
-      ],
-      writtenContextNotes:
-        'Dadaji was born in 1948 in Karnataka. He worked for 32 years in precision tooling. Famous family advice: "When you build something with honesty, time works on your side, not against you." Every Sunday morning he sat on the veranda listening to All India Radio while teaching us how to tune bicycle gears. He never raised his voice, loved black pepper ginger tea, and always put family first.',
-      audioFileName: 'Dadaji_Sunday_Voicemail_1998.wav',
-      audioDuration: '1:14',
-      voiceTimbreAnalyzed: true,
-      photoPreviewUrl: '/grandfather.jpg',
-    }));
-  };
 
   // Handle WhatsApp File Upload
   const handleWhatsAppUpload = (e) => {
@@ -406,17 +362,10 @@ export default function CreateAvatarPage({ onBackToHome, onNavigateToVault, onAv
               className="switcher-tab"
               title="View saved avatars in Family Vault"
             >
-              <span className="switcher-dot" />
+              <FolderLock size={14} />
               <span>Family Vault</span>
             </button>
           </div>
-        </div>
-
-        <div className="studio-nav-right">
-          <button onClick={handleLoadSampleGrandpa} className="studio-demo-preset-btn">
-            <Sparkles size={14} />
-            <span>Load Sample Profile (Grandpa Ramesh)</span>
-          </button>
         </div>
       </header>
 
@@ -443,7 +392,7 @@ export default function CreateAvatarPage({ onBackToHome, onNavigateToVault, onAv
                   {isDone ? <Check size={14} /> : <Icon size={14} />}
                 </div>
                 <div className="stepper-text">
-                  <span className="stepper-step-idx">Step 0{st.num}</span>
+                  <span className="stepper-step-idx">Step {st.num}</span>
                   <span className="stepper-step-name">{st.label}</span>
                 </div>
               </button>

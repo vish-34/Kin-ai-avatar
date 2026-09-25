@@ -2176,22 +2176,263 @@ body.studio-mode-active #root {
   }
 }
 
+/* Mobile density breakpoint — reduce all desktop-scale component sizes */
+@media (max-width: 640px) {
+  .context-modes-selector {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .mode-select-btn {
+    padding: 10px 12px;
+    gap: 8px;
+    border-radius: 12px;
+  }
+
+  .mode-icon-circle {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mode-title {
+    font-size: 12.5px;
+  }
+
+  .mode-sub {
+    font-size: 11px;
+  }
+
+  .dropzone-box {
+    padding: 20px 14px;
+    border-radius: 14px;
+  }
+
+  .dropzone-icon-ring {
+    width: 46px;
+    height: 46px;
+  }
+
+  .dropzone-content h4 {
+    font-size: 14px;
+  }
+
+  .dropzone-content p {
+    font-size: 12px;
+  }
+
+  .photo-dropzone {
+    padding: 24px 14px;
+    border-radius: 16px;
+    gap: 8px;
+  }
+
+  .photo-stage-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .photo-preview-card {
+    padding: 12px;
+    border-radius: 14px;
+    gap: 12px;
+  }
+
+  .traits-card-wrapper {
+    padding: 14px 12px;
+    border-radius: 12px;
+  }
+
+  .traits-card-header {
+    margin-bottom: 12px;
+  }
+
+  .traits-sliders-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .written-context-card {
+    padding: 14px 12px;
+    border-radius: 14px;
+    gap: 12px;
+  }
+
+  .whatsapp-guide-panel {
+    padding: 14px 12px;
+    border-radius: 14px;
+    gap: 10px;
+  }
+
+  .parsed-insights-box {
+    padding: 14px 12px;
+    border-radius: 14px;
+  }
+
+  .insights-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .acoustic-metrics-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .acoustic-analysis-box {
+    padding: 14px 12px;
+    border-radius: 14px;
+  }
+
+  .mic-record-panel {
+    padding: 14px 12px;
+    border-radius: 14px;
+  }
+
+  .live-wave-screen {
+    padding: 12px 14px;
+  }
+
+  .ingestion-dual-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .omni-context-summary {
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+
+  .summary-items-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .stage-title {
+    font-size: 19px !important;
+  }
+
+  .stage-description {
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .stage-pill-tag {
+    font-size: 10px;
+    padding: 3px 9px;
+  }
+
+  .stage-synthesis-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+
+  .synthesis-modal-box {
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+
+  .synthesis-spinner-ring {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 14px;
+  }
+
+  .synthesis-modal-box h3 {
+    font-size: 17px;
+  }
+
+  .synthesis-sub {
+    font-size: 12.5px;
+    margin-bottom: 16px;
+  }
+}
+
 @media (max-width: 600px) {
   .studio-navbar {
-    padding: 0 16px;
+    padding: 0 10px;
+    height: 52px;
+  }
+
+  .studio-back-btn {
+    padding: 5px 9px;
+    font-size: 11.5px;
+  }
+
+  .studio-back-btn span {
+    display: none;
+  }
+
+  .studio-brand-divider {
+    display: none;
   }
 
   .studio-nav-center {
     display: none;
   }
 
+  .vault-top-switcher span {
+    display: none;
+  }
+
+  .switcher-tab {
+    padding: 6px 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .studio-content-body {
+    padding: 12px 10px 48px;
+    gap: 12px;
+  }
+
   .studio-stepper-tracker {
-    display: flex;
-    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow: hidden;
+    padding: 4px;
+    gap: 4px;
+    border-radius: 14px;
   }
 
   .stepper-node {
+    padding: 6px 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 10px;
+    min-width: 0;
+  }
+
+  .stepper-icon-circle {
+    width: 24px;
+    height: 24px;
     flex-shrink: 0;
+  }
+
+  .stepper-icon-circle svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .stepper-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .stepper-step-idx {
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: 1.1;
+  }
+
+  .stepper-step-name {
+    display: none;
   }
 
   .stage-form-grid,
@@ -2199,9 +2440,53 @@ body.studio-mode-active #root {
   .insights-grid,
   .acoustic-metrics-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .studio-stage-card {
-    padding: 24px 18px;
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+
+  .stage-card-title {
+    font-size: 19px;
+    letter-spacing: -0.02em;
+  }
+
+  .stage-card-desc {
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .stage-actions-bar {
+    flex-direction: column-reverse;
+    gap: 8px;
+    align-items: stretch;
+    padding-top: 12px;
+  }
+
+  .stage-continue-btn,
+  .stage-back-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+    font-size: 13.5px;
+    padding: 10px 16px;
+  }
+
+  .stage-actions-hint {
+    justify-content: center;
+    text-align: center;
+    font-size: 11.5px;
+  }
+
+  .voice-presets-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .avatar-generation-preview-box {
+    height: 200px;
   }
 }
+

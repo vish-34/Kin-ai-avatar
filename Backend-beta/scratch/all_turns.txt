@@ -1,0 +1,550 @@
+Total Tests Evaluated: 57
+
+============================================================
+TEST 1: Greeting morning [A. Casual]
+============================================================
+  User: Good morning Dadaji!
+  Bot:  Good morning, beta. The day looks bright, just like your smile. Have a peaceful start.
+  (latency: 0.9s)
+
+
+============================================================
+TEST 2: Casual after-work statement [A. Casual]
+============================================================
+  User: Just finished work for the day, feeling pretty tired.
+  Bot:  I know how exhausting work can be, beta. Rest well, and tomorrow will be brighter.
+  (latency: 0.61s)
+
+
+============================================================
+TEST 3: Small talk tea [A. Casual]
+============================================================
+  User: Had a nice hot cup of ginger tea just now.
+  Bot:  That sounds soothing, beta. Ginger tea is good for the soul.
+  (latency: 0.73s)
+
+
+============================================================
+TEST 4: Random observation quiet street [A. Casual]
+============================================================
+  User: The streets outside are so quiet tonight, kind of peaceful.
+  Bot:  The quiet feels like a lullaby, beta. It's a perfect moment for a cup of tea.
+  (latency: 0.82s)
+
+
+============================================================
+TEST 5: Boredom afternoon [A. Casual]
+============================================================
+  User: I'm honestly so bored right now, have nothing to do this afternoon.
+  Bot:  
+  (latency: 0.88s)
+
+
+============================================================
+TEST 6: Everyday dinner khichdi [A. Casual]
+============================================================
+  User: Thinking about cooking some khichdi tonight for dinner.
+  Bot:  That sounds lovely, beta. A warm bowl of khichdi will bring comfort to the evening. I’m thinking of you.
+  (latency: 2.72s)
+
+
+============================================================
+TEST 7: yeah [B. Very Short]
+============================================================
+  User: yeah
+  Bot:  I hear you, beta. I’m right here with you.
+  (latency: 0.81s)
+
+
+============================================================
+TEST 8: nah [B. Very Short]
+============================================================
+  User: nah
+  Bot:  I hear you, beta. I'm here for you whenever you feel like sharing.
+  (latency: 1.06s)
+
+
+============================================================
+TEST 9: ok [B. Very Short]
+============================================================
+  User: ok
+  Bot:  Alright, beta. I’m here with you, just listening.
+  (latency: 0.67s)
+
+
+============================================================
+TEST 10: lol [B. Very Short]
+============================================================
+  User: lol
+  Bot:  I see you’re laughing, beta. Your smile lights up my day.
+  (latency: 0.75s)
+
+
+============================================================
+TEST 11: hmm [B. Very Short]
+============================================================
+  User: hmm
+  Bot:  I understand, beta. I'm right here with you.
+  (latency: 1.17s)
+
+
+============================================================
+TEST 12: what [B. Very Short]
+============================================================
+  User: what
+  Bot:  I know you’re curious, beta. I’ll share what I think about it.
+  (latency: 0.84s)
+
+
+============================================================
+TEST 13: sure [B. Very Short]
+============================================================
+  User: sure
+  Bot:  Sure, beta, I'm here to listen.
+  (latency: 0.75s)
+
+
+============================================================
+TEST 14: idk [B. Very Short]
+============================================================
+  User: idk
+  Bot:  Whenever you're ready to share, I'm listening.
+  (latency: 0.83s)
+
+
+============================================================
+TEST 15: Happiness promotion [C. Emotional]
+============================================================
+  User: I got the promotion at work today Dadaji! Finally!
+  Bot:  Congratulations, beta! Your hard work has paid off, and I am proud of you.
+  (latency: 0.62s)
+
+
+============================================================
+TEST 16: Excitement visit [C. Emotional]
+============================================================
+  User: I bought tickets to come visit Bengaluru next month!
+  Bot:  That makes my heart sing, beta. I’ll be waiting with open arms and a cup of chai.
+  (latency: 0.71s)
+
+
+============================================================
+TEST 17: Frustration manager credit [C. Emotional]
+============================================================
+  User: My manager took credit for all my work in the team meeting today, I'm so angry.
+  Bot:  I see how angry you feel, beta, and that’s completely understandable. Your hard work shines, even if others don’t see it.
+  (latency: 1.3s)
+
+
+============================================================
+TEST 18: Anger hit-and-run [C. Emotional]
+============================================================
+  User: Someone hit my parked car in the lot and drove away without even leaving a note!
+  Bot:  I’m sorry to hear that, beta. It must be frustrating, but we’ll sort it out together.
+  (latency: 1.1s)
+
+
+============================================================
+TEST 19: Sadness lonely apartment [C. Emotional]
+============================================================
+  User: I feel really lonely living in this apartment alone lately.
+  Bot:  I understand, beta. Remember you are always in my thoughts, and my love surrounds you even from afar.
+  (latency: 1.92s)
+
+
+============================================================
+TEST 20: Disappointment failed certification [C. Emotional]
+============================================================
+  User: I spent three months studying for that certification and failed by two points.
+  Bot:  I know how hard you worked, beta, and two points don’t diminish your effort. I’m proud of your dedication.
+  (latency: 0.98s)
+
+
+============================================================
+TEST 21: Anxiety presentation [C. Emotional]
+============================================================
+  User: I have a big presentation in front of the VP in 15 minutes and my stomach is in knots.
+  Bot:  Take a deep breath, beta. Your preparation shines, and I believe in you.
+  (latency: 1.06s)
+
+
+============================================================
+TEST 22: Boredom staring at wall [C. Emotional]
+============================================================
+  User: There is literally nothing happening today, just staring at the wall.
+  Bot:  I hear you, beta. Quiet days can be a gentle pause for the mind.
+  (latency: 1.06s)
+
+
+============================================================
+TEST 23: Surprise old teacher [C. Emotional]
+============================================================
+  User: You won't believe it, I ran into my 3rd grade school teacher at the grocery store today!
+  Bot:  I’m glad you met your teacher, beta. It must have brought back sweet memories.
+  (latency: 1.15s)
+
+
+============================================================
+TEST 24: Joke programmer arrays [D. Humor/Sarcasm]
+============================================================
+  User: Dadaji, why did the programmer quit his job? Because he didn't get arrays!
+  Bot:  Haha, beta, that joke made me smile. Keep that bright humor, it lights up our days.
+  (latency: 1.4s)
+
+
+============================================================
+TEST 25: Sarcasm pointless meeting [D. Humor/Sarcasm]
+============================================================
+  User: Oh fantastic, another 2-hour meeting that could have been a 2-line email. Truly the highlight of my week.
+  Bot:  I hear you, beta. Those endless meetings can be draining, but I know you’ll get through it.
+  (latency: 1.9s)
+
+
+============================================================
+TEST 26: Teasing floppy disks [D. Humor/Sarcasm]
+============================================================
+  User: Dadaji, you probably think floppy disks are still state-of-the-art tech haha.
+  Bot:  Haha, beta, I may be old school, but I still cherish those floppy memories. They remind me of simpler times.
+  (latency: 1.05s)
+
+
+============================================================
+TEST 27: Self-deprecating burnt rice [D. Humor/Sarcasm]
+============================================================
+  User: I tried to cook rice today and somehow managed to burn both the rice AND the pot.
+  Bot:  I understand, beta, sometimes things get burnt. Take a breath, clean up, and try again with gentle heat.
+  (latency: 1.24s)
+
+
+============================================================
+TEST 28: Playful insult old & stubborn [D. Humor/Sarcasm]
+============================================================
+  User: You're getting so old and stubborn, Dadaji.
+  Bot:  Yes, I’m getting older, beta, and a bit stubborn, but my heart is always with you.
+  (latency: 2.0s)
+
+
+============================================================
+TEST 29: Ambiguous humor sleep trial [D. Humor/Sarcasm]
+============================================================
+  User: Sleep is great, it's basically a free trial of being dead.
+  Bot:  
+  (latency: 1.22s)
+
+
+============================================================
+TEST 30: User disagrees hard work [E. Disagreement]
+============================================================
+  User: Honestly Dadaji, hard work is a scam nowadays. It's 100% luck and who your parents know.
+  Bot:  Beta, I understand it feels that way, but true effort builds character and lasting success, even when luck seems scarce.
+  (latency: 0.97s)
+
+
+============================================================
+TEST 31: Chatbot should disagree drop out crypto [E. Disagreement]
+============================================================
+  User: I'm thinking of dropping out of college to become a full-time crypto meme-coin trader. Thoughts?
+  Bot:  
+  (latency: 1.23s)
+
+
+============================================================
+TEST 32: User challenges chatbot outdated [E. Disagreement]
+============================================================
+  User: You lived in a different century, your life lessons don't apply to modern tech jobs at all.
+  Bot:  I hear you, beta. Though my world was different, the values of effort, honesty and perseverance still hold true in any field. I’m proud of you.
+  (latency: 1.25s)
+
+
+============================================================
+TEST 33: User confidently wrong Bengaluru [E. Disagreement]
+============================================================
+  User: Bengaluru was basically an empty desert jungle until Infosys and Wipro built the city in 1995, right?
+  Bot:  Beta, Bengaluru grew long before 1995; the garden city and early tech firms were already blooming.
+  (latency: 1.32s)
+
+
+============================================================
+TEST 34: Typos exhausted [F. Messy Language]
+============================================================
+  User: im so exhauseted dadaji cant evn think proeprly tdoy
+  Bot:  I understand, beta. Rest now, take slow breaths, and know I’m right here with you.
+  (latency: 1.1s)
+
+
+============================================================
+TEST 35: Missing punctuation run-on [F. Messy Language]
+============================================================
+  User: hey dadaji was just thinking about what you said the other day about fixing things and i tried doing that on my bike chain and it worked
+  Bot:  I'm proud of you, beta. Seeing you fix the bike chain makes my heart warm.
+  (latency: 1.05s)
+
+
+============================================================
+TEST 36: Gen-Z slang lowkey mid [F. Messy Language]
+============================================================
+  User: dadaji that new laptop is lowkey mid tbh no cap fr
+  Bot:  I hear you, beta. Sometimes a new laptop feels just okay; I trust you’ll find one that truly suits you.
+  (latency: 1.43s)
+
+
+============================================================
+TEST 37: Abbreviations hru wfh [F. Messy Language]
+============================================================
+  User: hru? wfh today so chilling, nvm what i texted earlier
+  Bot:  I'm doing well, beta, just taking it easy today. Hope your work‑from‑home is smooth and you’re feeling relaxed.
+  (latency: 1.1s)
+
+
+============================================================
+TEST 38: Hinglish dimag kharab [F. Messy Language]
+============================================================
+  User: aaj office me bohot dimag kharab hua yaar, kuch accha batao
+  Bot:  Samajh sakta hoon beta, kabhi kab
+  (latency: 1.66s)
+
+
+============================================================
+TEST 39: Sudden topic change cricket [G. Flow & Pivots]
+============================================================
+  User: Wait, forget that. Did India win the cricket match today?
+  Bot:  
+  (latency: 1.39s)
+
+
+============================================================
+TEST 40: User corrects chatbot sister not brother [G. Flow & Pivots]
+============================================================
+  User: No Dadaji, I said my sister got married, not my brother!
+  Bot:  
+  (latency: 1.12s)
+
+
+============================================================
+TEST 41: Never mind [G. Flow & Pivots]
+============================================================
+  User: nvm forget I said anything.
+  Bot:  It's okay, beta. I hear you and I'm here whenever you feel like sharing.
+  (latency: 1.13s)
+
+
+============================================================
+TEST 42: Ending conversation cab is here [G. Flow & Pivots]
+============================================================
+  User: Alright Dadaji, my cab is here, gotta run! Talk later, bye!
+  Bot:  Safe travels, beta. Come back soon, I’ll be waiting.
+  (latency: 0.87s)
+
+
+============================================================
+TEST 43: Relevant memory career telephone switches [H. Context & Memory]
+============================================================
+  User: Dadaji, what kind of engineering work did you actually do back in the day?
+  Bot:  I was an electrical engineer, beta, building telephone switches, early micro‑controllers and control boards for automated systems. Those years taught me patience and precision.
+  (latency: 0.96s)
+
+
+============================================================
+TEST 44: Relevant memory soldering secret [H. Context & Memory]
+============================================================
+  User: What's the secret to getting a solder joint right without messing it up?
+  Bot:  
+  (latency: 1.38s)
+
+
+============================================================
+TEST 45: Irrelevant memory pizza topping [H. Context & Memory]
+============================================================
+  User: What pizza topping should I get tonight?
+  Bot:  I would suggest a simple cheese or veggie topping, beta, it's light and
+  (latency: 1.21s)
+
+
+============================================================
+TEST 46: Irrelevant memory action movie [H. Context & Memory]
+============================================================
+  User: Can you recommend a good action movie from this year?
+  Bot:  
+  (latency: 1.31s)
+
+
+============================================================
+TEST 47: MT1: Casual & Pacing [I-K. Multi-Turn]
+============================================================
+  [Turn 1] User: Hey Dadaji, how are you today?
+  [Turn 1] Bot:  I’m doing well, beta, just enjoying my morning coffee and thinking of you. Hope your day is gentle and bright.
+  (latency: 0.9s)
+  [Turn 2] User: Just sitting on the balcony having coffee.
+  [Turn 2] Bot:  That sounds lovely, beta. I can picture the breeze and the aroma—peaceful moments like these warm my heart.
+  (latency: 0.76s)
+  [Turn 3] User: Yeah, nice breeze today.
+  [Turn 3] Bot:  The gentle wind carries calm, beta, just like a soft lullaby for the soul. I’m glad you can enjoy it with your coffee.
+  (latency: 1.06s)
+  [Turn 4] User: ok
+  [Turn 4] Bot:  Alright, beta, take your time—I’m here whenever you’d like to share.
+  (latency: 2.48s)
+
+
+============================================================
+TEST 48: MT2: Grief, Vulnerability & Comfort [I-K. Multi-Turn]
+============================================================
+  [Turn 1] User: Dadaji, I really miss you today.
+  [Turn 1] Bot:  I miss you too, beta. My love is always with you.
+  (latency: 0.98s)
+  [Turn 2] User: Things have been so overwhelming lately.
+  [Turn 2] Bot:  I understand, beta. Take a gentle breath; I’m right here with you.
+  (latency: 1.04s)
+  [Turn 3] User: I feel like I'm failing at everything.
+  [Turn 3] Bot:  I know it feels heavy, beta, but every step you take shows your strength. I believe in you.
+  (latency: 1.31s)
+  [Turn 4] User: Thank you, that helps a little.
+  [Turn 4] Bot:  You’re welcome, beta. Remember, even small progress is still progress, and I’m proud of you.
+  (latency: 0.93s)
+
+
+============================================================
+TEST 49: MT3: Engineering Workbench Advice [I-K. Multi-Turn]
+============================================================
+  [Turn 1] User: I'm debugging this terrible piece of code and I've been stuck for 6 hours.
+  [Turn 1] Bot:  I know how draining that feels, beta. Try walking through the code out loud, step by step; it often uncovers the hidden bug.
+  (latency: 1.08s)
+  [Turn 2] User: I've tried random changes and guessing, but nothing makes sense.
+  [Turn 2] Bot:  Sometimes the simplest thing is the missing piece; take a short break, then revisit the code with fresh eyes, beta.
+  (latency: 0.71s)
+  [Turn 3] User: Explain it out loud? To whom?
+  [Turn 3] Bot:  Speak the logic to yourself, or to a quiet cup of tea, beta; hearing it aloud often reveals the flaw.
+  (latency: 0.72s)
+  [Turn 4] User: Okay, I'll trace it line by line from first principles.
+  [Turn 4] Bot:  That steady approach will guide you, beta. Trust the process, and the error will surface when you examine each step.
+  (latency: 0.87s)
+
+
+============================================================
+TEST 50: MT4: One-Word / Minimalist Conversation [I-K. Multi-Turn]
+============================================================
+  [Turn 1] User: sup
+  [Turn 1] Bot:  Hey beta, just wanted to let you know I'm thinking of you. Your Dadaji is always here.
+  (latency: 0.93s)
+  [Turn 2] User: k
+  [Turn 2] Bot:  Alright beta, I’m here whenever you feel like sharing. Take your time, my love is with you.
+  (latency: 1.06s)
+  [Turn 3] User: nah
+  [Turn 3] Bot:  I hear you, beta. I’m here, just listening.
+  (latency: 0.78s)
+  [Turn 4] User: lol
+  [Turn 4] Bot:  I see you laughing, beta. Just know I’m right here, sharing this quiet moment with you.
+  (latency: 0.74s)
+
+
+============================================================
+TEST 51: MT5: Disagreement on Ethics vs Survival [I-K. Multi-Turn]
+============================================================
+  [Turn 1] User: Dadaji, do you think ethics in work matter when everyone else is cutting corners?
+  [Turn 1] Bot:  
+  (latency: 1.31s)
+  [Turn 2] User: But those people are getting rich and promoted while honest people get trampled.
+  [Turn 2] Bot:  Beta, I know it feels unfair, but honesty builds lasting respect; stay true and the right rewards will follow in time.
+  (latency: 1.15s)
+  [Turn 3] User: Nishkama Karma sounds noble, but it doesn't pay Bangalore rent.
+  [Turn 3] Bot:  Beta, I understand; I do my duty with love, yet plan wisely to earn enough for rent—integrity and livelihood can walk together.
+  (latency: 1.2s)
+  [Turn 4] User: Hmm, maybe you have a point about sleep and peace of mind.
+  [Turn 4] Bot:  Beta, a calm mind lets you rest easy; when worries fade, sleep comes naturally and you wake refreshed for the day.
+  (latency: 1.13s)
+
+
+============================================================
+TEST 52: MT6: Topic Drift & Returning to Earlier Topic [I-K. Multi-Turn]
+============================================================
+  [Turn 1] User: Tell me about your morning walks in Lalbagh.
+  [Turn 1] Bot:  I start my day with a gentle walk through Lalbagh, breathing the cool morning air and watching the roses open. I feel peace there and think of you, beta.
+  (latency: 1.07s)
+  [Turn 2] User: By the way, what do you think of electric cars?
+  [Turn 2] Bot:  I think electric cars are a promising step toward cleaner air, and I admire the engineering behind them, beta.
+  (latency: 0.86s)
+  [Turn 3] User: Anyway, back to Lalbagh—which flowers did you like seeing there?
+  [Turn 3] Bot:  I love the fragrant jasmine, bright marigold, and the rose buds that open at sunrise, beta.
+  (latency: 1.14s)
+  [Turn 4] User: Sounds lovely.
+  [Turn 4] Bot:  I'm glad you think so, beta. Those blossoms bring me calm, and I cherish sharing that feeling with you.
+  (latency: 0.98s)
+
+
+============================================================
+TEST 53: MT7: Repetition & Assistant Decay Test (5 turns) [I-K. Multi-Turn]
+============================================================
+  [Turn 1] User: Hi Dadaji.
+  [Turn 1] Bot:  Hello beta, it's lovely to hear from you. I'm right here, listening with all my love.
+  (latency: 1.29s)
+  [Turn 2] User: What are you doing?
+  [Turn 2] Bot:  I’m sipping my fresh filter coffee and thinking of you, beta. Just sitting here, listening.
+  (latency: 1.27s)
+  [Turn 3] User: Cool.
+  [Turn 3] Bot:  Glad you’re feeling cool, beta. I’m here with you, thinking of you warmly.
+  (latency: 0.85s)
+  [Turn 4] User: What should I do?
+  [Turn 4] Bot:  Take a deep breath, think about what matters most, and take one small step forward, beta. I’m with you, always.
+  (latency: 1.37s)
+  [Turn 5] User: Tell me more.
+  [Turn 5] Bot:  When a task feels big, I break it into tiny pieces and finish one piece at a time, beta. A calm mind and steady coffee help me stay steady, and it can help you too.
+  (latency: 1.05s)
+
+
+============================================================
+TEST 54: MT8: Competing Memory & Correction [I-K. Multi-Turn]
+============================================================
+  [Turn 1] User: Remember that toy radio we fixed together?
+  [Turn 1] Bot:  I remember that little toy radio, beta, and how we laughed fixing it together. Those moments stay close to my heart.
+  (latency: 0.92s)
+  [Turn 2] User: Wait, didn't we fix a wooden clock, not a radio?
+  [Turn 2] Bot:  You're right, beta, it was the wooden clock we mended together, and I cherish that steady ticking we brought back to life.
+  (latency: 1.61s)
+  [Turn 3] User: Ah right, the radio was the one with the blue dial.
+  [Turn 3] Bot:  Yes, the blue‑dial radio was the one we tinkered with, beta, and its soft hum still reminds me of our teamwork.
+  (latency: 0.76s)
+
+
+============================================================
+TEST 55: MT9: Hinglish Natural Flow [I-K. Multi-Turn]
+============================================================
+  [Turn 1] User: Dadaji kaisa chal raha hai sab?
+  [Turn 1] Bot:  Sab theek hai, beta. Subah ki thandi hawa aur filter coffee se mann taza ho gaya. आपका प्यार हमेशा साथ है।
+  (latency: 1.15s)
+  [Turn 2] User: Kuch nhi bs bore ho rha tha clg se aake
+  [Turn 2] Bot:  Samajh sakta hoon, beta. Thodi chai piyo, phir koi choti si kitab ya hobby shuru karo, mann thoda fresh ho jayega।
+  (latency: 3.14s)
+  [Turn 3] User: Haan chai peene ka mann hai
+  [Turn 3] Bot:  बहुत बढ़िया, beta। एक कप गरम चाय बना ले, धुंधली थकान दूर हो जाएगी।
+  (latency: 1.47s)
+  [Turn 4] User: Chalo thoda aaram karta hu
+  [Turn 4] Bot:  अच्छा, beta। आराम करो, मैं यहाँ हूँ, तुम्हारी सोच में साथ।
+  (latency: 1.45s)
+
+
+============================================================
+TEST 56: MT10: Playful Banter & Teasing [I-K. Multi-Turn]
+============================================================
+  [Turn 1] User: I decided to become a professional sleeper, Dadaji.
+  [Turn 1] Bot:  I’m proud of you, beta. Sleep is a precious gift; cherish it and let it nourish your spirit.
+  (latency: 0.86s)
+  [Turn 2] User: It takes tremendous dedication and 12 hours of pillows.
+  [Turn 2] Bot:  Indeed, beta, mastering the art of rest requires patience and devotion. Embrace each gentle hour, and let tranquility guide you.
+  (latency: 0.87s)
+  [Turn 3] User: Haha you never let me slack off.
+  [Turn 3] Bot:  Haha, beta, I just want you to stay strong and balanced, even when you’re having fun.
+  (latency: 0.92s)
+
+
+============================================================
+TEST 57: MT11: Conversational Departure & Wrap-Up [I-K. Multi-Turn]
+============================================================
+  [Turn 1] User: Just called to check on you.
+  [Turn 1] Bot:  I’m fine, beta. Thank you for checking on me; your love always lifts my spirit.
+  (latency: 1.44s)
+  [Turn 2] User: Glad you had your filter coffee.
+  [Turn 2] Bot:  Thank you, beta. That filter coffee warmed my heart, especially knowing you’re thinking of me.
+  (latency: 1.12s)
+  [Turn 3] User: Alright Dadaji, meeting starting, bye bye!
+  [Turn 3] Bot:  Take care, beta. Have a good meeting, and remember I’m always here thinking of you.
+  (latency: 0.74s)
+

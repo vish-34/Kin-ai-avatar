@@ -631,7 +631,242 @@
   .vault-top-switcher span {
     display: none;
   }
+  .switcher-tab {
+    padding: 6px 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
   .vault-content-viewport {
     padding: 24px 16px 60px;
   }
 }
+
+@media (max-width: 640px) {
+  .vault-navbar {
+    padding: 0 10px;
+    height: 48px;
+  }
+
+  .vault-back-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .vault-back-btn span {
+    display: none;
+  }
+
+  .vault-create-new-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .vault-create-new-btn span {
+    font-size: 11px;
+  }
+
+  .vault-content-viewport {
+    padding: 12px 10px 40px;
+    gap: 12px;
+  }
+
+  .vault-page-header {
+    gap: 4px;
+  }
+
+  .vault-header-badge {
+    font-size: 9.5px;
+    padding: 2.5px 7px;
+  }
+
+  .vault-page-title {
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .vault-page-subtitle {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  /* 2 in one row on mobile */
+  .vault-avatars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .vault-avatar-card {
+    border-radius: 12px;
+  }
+
+  .avatar-card-image-wrap {
+    aspect-ratio: 1 / 1;
+  }
+
+  .avatar-live-status {
+    bottom: 5px;
+    left: 5px;
+    padding: 2px 6px;
+    font-size: 8px;
+    gap: 4px;
+    max-width: calc(100% - 32px);
+  }
+
+  .live-status-dot {
+    width: 5px;
+    height: 5px;
+    flex-shrink: 0;
+  }
+
+  .avatar-live-status span:last-child {
+    font-size: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .avatar-card-delete-btn {
+    top: 5px;
+    right: 5px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .avatar-card-delete-btn svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .avatar-card-body {
+    padding: 8px 7px 9px;
+    gap: 4px;
+  }
+
+  .avatar-card-name {
+    font-size: 13px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .avatar-card-calling {
+    font-size: 9.5px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 1px;
+  }
+
+  .avatar-era-tag {
+    font-size: 8.5px;
+    padding: 1.5px 5px;
+    gap: 3px;
+  }
+
+  .avatar-era-tag svg {
+    width: 9px;
+    height: 9px;
+  }
+
+  .avatar-card-summary {
+    font-size: 10px;
+    line-height: 1.35;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Compact 2-column mobile presentation */
+  .avatar-catchphrase-chip {
+    display: none;
+  }
+
+  .avatar-card-meta-box {
+    display: none;
+  }
+
+  .avatar-card-footer {
+    margin-top: auto;
+    padding-top: 2px;
+  }
+
+  .avatar-card-footer-dual {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .card-speak-btn-secondary,
+  .card-video-call-btn,
+  .card-speak-btn {
+    min-height: 29px;
+    font-size: 10.5px;
+    padding: 4px 6px;
+    border-radius: var(--radius-pill);
+    gap: 4px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .card-speak-btn-secondary svg,
+  .card-video-call-btn svg,
+  .card-speak-btn svg {
+    width: 11px;
+    height: 11px;
+    flex-shrink: 0;
+  }
+
+  .vault-empty-state {
+    padding: 32px 14px;
+    border-radius: 16px;
+    gap: 10px;
+  }
+
+  .vault-empty-state h3 {
+    font-size: 18px;
+  }
+
+  .vault-empty-state p {
+    font-size: 12px;
+  }
+
+  .empty-actions-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .empty-actions-row .vault-create-new-btn,
+  .empty-actions-row .vault-restore-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .vault-avatars-grid {
+    gap: 6px;
+  }
+
+  .avatar-card-body {
+    padding: 6px 5px 8px;
+  }
+
+  .avatar-card-name {
+    font-size: 12px;
+  }
+
+  .card-speak-btn-secondary,
+  .card-video-call-btn,
+  .card-speak-btn {
+    font-size: 9.5px;
+    min-height: 27px;
+  }
+}
+
+

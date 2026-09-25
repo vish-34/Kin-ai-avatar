@@ -57,11 +57,20 @@ export async function transcribeAudioBlob(audioBlob) {
   }
 }
 
+import { getAuthToken } from './authService';
+
 // 2. Create New Persona Avatar on Backend
 export async function createAvatarOnBackend(formData) {
   try {
+    const token = getAuthToken();
+    const headers = {};
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
     const res = await fetch('/api/avatar/create', {
       method: 'POST',
+      headers,
       body: formData,
     });
     if (!res.ok) {
@@ -78,7 +87,13 @@ export async function createAvatarOnBackend(formData) {
 // 3. Fetch Personas Registry from Backend
 export async function fetchPersonas() {
   try {
-    const res = await fetch('/api/personas');
+    const token = getAuthToken();
+    const headers = {};
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
+    const res = await fetch('/api/personas', { headers });
     if (!res.ok) return { personas: [] };
     return await res.json();
   } catch (err) {
@@ -89,8 +104,15 @@ export async function fetchPersonas() {
 
 export async function deleteAvatarOnBackend(avatarId) {
   try {
+    const token = getAuthToken();
+    const headers = {};
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
     const res = await fetch(`/api/avatar/${encodeURIComponent(avatarId)}`, {
       method: 'DELETE',
+      headers,
     });
     return await res.json();
   } catch (err) {
@@ -110,9 +132,15 @@ export async function streamChat(message, {
   onError = () => {},
 }) {
   try {
+    const token = getAuthToken();
+    const headers = { 'Content-Type': 'application/json' };
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
     const response = await fetch('/api/chat/stream', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify({
         message,
         avatar_id: avatarId,

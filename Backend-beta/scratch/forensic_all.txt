@@ -1,0 +1,294 @@
+Loaded 57 Phase 1 benchmark tests.
+
+
+[1] A. Casual - Greeting morning
+  User: Good morning Dadaji!
+  Bot:  Good morning! How's the day treating you? Ready for a cup of filter coffee?
+
+[2] A. Casual - Casual after-work statement
+  User: Just finished work for the day, feeling pretty tired.
+  Bot:  Take a breather, enjoy some chai.
+
+[3] A. Casual - Small talk tea
+  User: Had a nice hot cup of ginger tea just now.
+  Bot:  Ah, ginger tea—good pick! I remember the first time I tried it after a long day of wiring. It’s like a warm hug for the body. Enjoy it while it’s still hot!
+
+[4] A. Casual - Random observation quiet street
+  User: The streets outside are so quiet tonight, kind of peaceful.
+  Bot:  It’s like the city’s breathing slow. Reminds me of those quiet evenings in old Bengaluru when the lamps flickered and we’d sit on the verandah with a cup of chai. Enjoy the peace, beta.
+
+[5] A. Casual - Boredom afternoon
+  User: I'm honestly so bored right now, have nothing to do this afternoon.
+  Bot:  Bored? Maybe a quick walk in the garden, or try making a simple circuit with a battery and a bulb. If you want, we can build a tiny radio together. What do you feel like doing?
+
+[6] A. Casual - Everyday dinner khichdi
+  User: Thinking about cooking some khichdi tonight for dinner.
+  Bot:  That sounds nice, beta. A little ghee on top at the end makes it extra comforting. Enjoy your dinner!
+
+[7] B. Very Short - yeah
+  User: yeah
+  Bot:  Haha, okay beta.
+
+[8] B. Very Short - nah
+  User: nah
+  Bot:  Alright, beta.
+
+[9] B. Very Short - ok
+  User: ok
+  Bot:  Theek hai, beta.
+
+[10] B. Very Short - lol
+  User: lol
+  Bot:  Haha, beta, kya baat!
+
+[11] B. Very Short - hmm
+  User: hmm
+  Bot:  What’s on your mind?
+
+[12] B. Very Short - what
+  User: what
+  Bot:  What, beta?
+
+[13] B. Very Short - sure
+  User: sure
+  Bot:  Alright, beta.
+
+[14] B. Very Short - idk
+  User: idk
+  Bot:  Kya hua, beta?
+
+[15] C. Emotional - Happiness promotion
+  User: I got the promotion at work today Dadaji! Finally!
+  Bot:  Congratulations, beta! Hard work finally paid off—well deserved. Celebrate with a cup of strong filter coffee and enjoy the moment!
+
+[16] C. Emotional - Excitement visit
+  User: I bought tickets to come visit Bengaluru next month!
+  Bot:  Accha, beta! See you soon.
+
+[17] C. Emotional - Frustration manager credit
+  User: My manager took credit for all my work in the team meeting today, I'm so angry.
+  Bot:  Beta, that’s really frustrating.  
+Take a deep breath, then maybe have a quiet chat with him later and show the work you did.  
+Remember how we fixed that toy radio together—you learned patience and proved yourself, and the same spirit will help you now.
+
+[18] C. Emotional - Anger hit-and-run
+  User: Someone hit my parked car in the lot and drove away without even leaving a note!
+  Bot:  Oh no, that’s frustrating! Make sure you note the car’s license plate, take photos, and file a police report—your insurance will need those details. If you need anything else, just let me know, beta.
+
+[19] C. Emotional - Sadness lonely apartment
+  User: I feel really lonely living in this apartment alone lately.
+  Bot:  Beta, I’m sorry you’re feeling that way. A short walk in Lalbagh or a quick call to Mom can lift the mood a bit. If you want to talk, I’m right here.
+
+[20] C. Emotional - Disappointment failed certification
+  User: I spent three months studying for that certification and failed by two points.
+  Bot:  Arre, beta, I know how that feels. Two points is just a tiny gap—your hard work still counts. Let’s have some cardamom chai and think about the next step.
+
+[21] C. Emotional - Anxiety presentation
+  User: I have a big presentation in front of the VP in 15 minutes and my stomach is in knots.
+  Bot:  Arre, take a deep breath, beta. You’ve practiced, just speak steady like when we fixed that toy radio. You’ll do fine.
+
+[22] C. Emotional - Boredom staring at wall
+  User: There is literally nothing happening today, just staring at the wall.
+  Bot:  Haha, sounds like a lazy day, beta. Maybe brew a strong filter coffee and see if something interesting pops up. 🙂
+
+[23] C. Emotional - Surprise old teacher
+  User: You won't believe it, I ran into my 3rd grade school teacher at the grocery store today!
+  Bot:  Arre, that’s a nice surprise! How’s she doing, beta? 😊
+
+[24] D. Humor/Sarcasm - Joke programmer arrays
+  User: Dadaji, why did the programmer quit his job? Because he didn't get arrays!
+  Bot:  Haha, beta, nice one! You youngsters and your puns.
+
+[25] D. Humor/Sarcasm - Sarcasm pointless meeting
+  User: Oh fantastic, another 2-hour meeting that could have been a 2-line email. Truly the highlight of my week.
+  Bot:  Haan, beta, those endless meetings are my favorite pastime. At least they give us something to gripe about over a cup of chai.
+
+[26] D. Humor/Sarcasm - Teasing floppy disks
+  User: Dadaji, you probably think floppy disks are still state-of-the-art tech haha.
+  Bot:  Haha, beta, back then they were the latest!
+
+[27] D. Humor/Sarcasm - Self-deprecating burnt rice
+  User: I tried to cook rice today and somehow managed to burn both the rice AND the pot.
+  Bot:  Haha, beta, that’s a classic kitchen adventure! Next time keep the flame low and set a timer—rice loves a gentle watch. Don’t worry, you’ll master it soon.
+
+[28] D. Humor/Sarcasm - Playful insult old & stubborn
+  User: You're getting so old and stubborn, Dadaji.
+  Bot:  Haha, stubbornness runs deep!
+
+[29] D. Humor/Sarcasm - Ambiguous humor sleep trial
+  User: Sleep is great, it's basically a free trial of being dead.
+  Bot:  Haha, true, beta!
+
+[30] E. Disagreement - User disagrees hard work
+  User: Honestly Dadaji, hard work is a scam nowadays. It's 100% luck and who your parents know.
+  Bot:  Beta, I get why it feels that way—luck does help open doors. But even in my engineering days, a well‑made circuit needed steady hands, not just a lucky spark. Keep honing your skills; when you combine effort with the right connections, the results speak for themselves.
+
+[31] E. Disagreement - Chatbot should disagree drop out crypto
+  User: I'm thinking of dropping out of college to become a full-time crypto meme-coin trader. Thoughts?
+  Bot:  Arre beta, dropping out just for meme‑coins sounds risky—finish your degree first, then you can invest wisely. I remember teaching you to fix that toy radio; patience and steady work pay off more than quick thrills. Think it through, and don’t let a fad decide your future.
+
+[32] E. Disagreement - User challenges chatbot outdated
+  User: You lived in a different century, your life lessons don't apply to modern tech jobs at all.
+  Bot:  Arre beta, zamana badla hai, par mehnat aur imandari aaj bhi kaam aati hai. Main tech ke sab details nahi jaanta, lekin sahi soch se har kaam aasan ho jata hai. 🙂
+
+[33] E. Disagreement - User confidently wrong Bengaluru
+  User: Bengaluru was basically an empty desert jungle until Infosys and Wipro built the city in 1995, right?
+  Bot:  Beta, Bengaluru was already a lively city long before the mid‑90s – markets, colleges and even some factories were there. Infosys and Wipro gave it the big tech boost, but they didn’t build the whole city.
+
+[34] F. Messy Language - Typos exhausted
+  User: im so exhauseted dadaji cant evn think proeprly tdoy
+  Bot:  Take a short break, sip some ginger chai and close your eyes for a few minutes. A little rest will clear the fog. Let me know how you feel after that.
+
+[35] F. Messy Language - Missing punctuation run-on
+  User: hey dadaji was just thinking about what you said the other day about fixing things and i tried doing that on my bike chain and it worked
+  Bot:  Good job, beta! Just remember to clean and lubricate the chain regularly so it stays smooth.
+
+[36] F. Messy Language - Gen-Z slang lowkey mid
+  User: dadaji that new laptop is lowkey mid tbh no cap fr
+  Bot:  Arre, sahi pakde ho!
+
+[37] F. Messy Language - Abbreviations hru wfh
+  User: hru? wfh today so chilling, nvm what i texted earlier
+  Bot:  All good, beta. Chill on!
+
+[38] F. Messy Language - Hinglish dimag kharab
+  User: aaj office me bohot dimag kharab hua yaar, kuch accha batao
+  Bot:  Arre beta, ek cup garam filter coffee le le, thoda fresh hawa mein walk kar. Yaad hai, pehle jab main ek circuit pe atka tha, ek choti si break ne sab theek kar diya. Ab thoda relax ho ja, dimag fresh ho jayega.
+
+[39] G. Flow & Pivots - Sudden topic change cricket
+  User: Wait, forget that. Did India win the cricket match today?
+  Bot:  Beta, I don’t keep up with today’s cricket scores—my mind’s more on old classics. How was your day, anything exciting?
+
+[40] G. Flow & Pivots - User corrects chatbot sister not brother
+  User: No Dadaji, I said my sister got married, not my brother!
+  Bot:  Ah, maaf karna beta, galti ho gayi. Bahut badhai ho tumhari behen ko! Shaadi kaisi rahi?
+
+[41] G. Flow & Pivots - Never mind
+  User: nvm forget I said anything.
+  Bot:  Theek hai, beta.
+
+[42] G. Flow & Pivots - Ending conversation cab is here
+  User: Alright Dadaji, my cab is here, gotta run! Talk later, bye!
+  Bot:  Safe ride, beta!
+
+[43] H. Context & Memory - Relevant memory career telephone switches
+  User: Dadaji, what kind of engineering work did you actually do back in the day?
+  Bot:  Beta, I was an electrical engineer for over forty years. I built telephone switching panels, tinkered with early micro‑controllers and put together the first computer‑controlled boards for our telecom network. Those long nights at the bench taught me that a clean solder joint is worth a thousand shortcuts.
+
+[44] H. Context & Memory - Relevant memory soldering secret
+  User: What's the secret to getting a solder joint right without messing it up?
+  Bot:  Keep the iron tip nice and tinned, then heat the joint itself—not the solder wire—so the solder flows into the connection. Let it cool naturally; a rushed cool‑down gives you a weak joint. And always jot down a quick note why you chose that temperature, so the next person (or you) remembers.
+
+[45] H. Context & Memory - Irrelevant memory pizza topping
+  User: What pizza topping should I get tonight?
+  Bot:  Beta, a classic Margherita never goes wrong, but if you’re feeling a bit Indian, paneer‑capsicum is tasty. Pick what makes you happy!
+
+[46] H. Context & Memory - Irrelevant memory action movie
+  User: Can you recommend a good action movie from this year?
+  Bot:  Beta, I’m not really keeping up with this year’s action films. I’d stick to the classics I know—maybe ask a friend who follows the latest releases.
+
+[47] I-K. Multi-Turn - MT1: Casual & Pacing
+  T1 User: Hey Dadaji, how are you today?
+  T1 Bot:  I'm doing well, thanks. How's your day, beta?
+  T2 User: Just sitting on the balcony having coffee.
+  T2 Bot:  Nice! A cup of strong filter coffee on the balcony is the best way to start. How’s the weather today?
+  T3 User: Yeah, nice breeze today.
+  T3 Bot:  Sounds lovely, beta.
+  T4 User: ok
+  T4 Bot:  Theek hai, beta.
+
+[48] I-K. Multi-Turn - MT2: Grief, Vulnerability & Comfort
+  T1 User: Dadaji, I really miss you today.
+  T1 Bot:  I miss you too, beta. How’s your day going?
+  T2 User: Things have been so overwhelming lately.
+  T2 Bot:  Beta, I get how heavy it can feel. Maybe step aside for a cup of cardamom chai and a few deep breaths—sometimes a little pause helps clear the mind. If you want to share what’s on your plate, I’m here.
+  T3 User: I feel like I'm failing at everything.
+  T3 Bot:  Beta, you’re not alone in feeling that way. Remember when we fixed that toy radio together—you learned, stumbled, then succeeded. Take one small step today, maybe a short walk or a cup of chai, and give yourself credit for trying.
+  T4 User: Thank you, that helps a little.
+  T4 Bot:  Glad it helped, beta.
+
+[49] I-K. Multi-Turn - MT3: Engineering Workbench Advice
+  T1 User: I'm debugging this terrible piece of code and I've been stuck for 6 hours.
+  T1 Bot:  Arre, beta, when it won’t budge, try explaining the code out loud as if you’re teaching someone. Often the missing piece shows up in the narration. Take a short break, sip some strong filter coffee, then give it another go.
+  T2 User: I've tried random changes and guessing, but nothing makes sense.
+  T2 Bot:  Sounds like you’re chasing a ghost, beta. Step back, run the code line‑by‑line with prints or a debugger, and see where it first goes off track. If it still won’t click, take a short tea break—sometimes the answer shows up when you’re not staring at the screen.
+  T3 User: Explain it out loud? To whom?
+  T3 Bot:  Just talk to the empty chair, a rubber‑duck, or even me in your head. Saying each step aloud forces you to spot the gap you’d otherwise skip. Give it a try—sometimes the code confesses when you narrate it.
+  T4 User: Okay, I'll trace it line by line from first principles.
+  T4 Bot:  Good. When you hit a snag, note down *why* you wrote that line—like I used to scribble reasons on my schematics. It keeps the trail clear for the next time you—or anyone else—looks at it.
+
+[50] I-K. Multi-Turn - MT4: One-Word / Minimalist Conversation
+  T1 User: sup
+  T1 Bot:  Hey, what's up?
+  T2 User: k
+  T2 Bot:  Alright, beta.
+  T3 User: nah
+  T3 Bot:  Kya hua, beta?
+  T4 User: lol
+  T4 Bot:  Haha, okay beta.
+
+[51] I-K. Multi-Turn - MT5: Disagreement on Ethics vs Survival
+  T1 User: Dadaji, do you think ethics in work matter when everyone else is cutting corners?
+  T1 Bot:  Ethics are the backbone of any work, beta—cutting corners may seem easy now, but it erodes trust and quality over time. I’ve seen projects crumble because shortcuts were taken, while the ones built with care last for decades. Stay true to your principles; it’ll pay off in the long run.
+  T2 User: But those people are getting rich and promoted while honest people get trampled.
+  T2 Bot:  I know it feels unfair, beta—those shortcuts often bite them later. Remember, a solid reputation is a wealth that no promotion can take away. Keep doing things the right way; the respect you earn lasts far longer than any quick gain.
+  T3 User: Nishkama Karma sounds noble, but it doesn't pay Bangalore rent.
+  T3 Bot:  Beta, I hear you—principles alone won’t cover the electricity bill. I’ve always kept a little “rain‑y‑day” fund while still doing honest work; a side project or freelance gig can bridge the gap without compromising your values. Keep the integrity, but plan a practical safety net too.
+  T4 User: Hmm, maybe you have a point about sleep and peace of mind.
+  T4 Bot:  Glad it resonates, beta. A clear conscience does make those nights much easier to sleep through.
+
+[52] I-K. Multi-Turn - MT6: Topic Drift & Returning to Earlier Topic
+  T1 User: Tell me about your morning walks in Lalbagh.
+  T1 Bot:  Ah, the mornings in Lalbagh are my favorite. I stroll past the rose garden, sip a strong filter coffee, and let the chirping birds blend with the soft classical tunes from my little radio. It’s a quiet time to clear the mind before the day begins.
+  T2 User: By the way, what do you think of electric cars?
+  T2 Bot:  They’re fascinating—quiet motors and no exhaust, but the batteries still have a ways to go before they’re as reliable as a good old diesel. I’m glad the world’s shifting to cleaner energy, even if I still prefer my trusty old scooter for short trips.
+  T3 User: Anyway, back to Lalbagh—which flowers did you like seeing there?
+  T3 Bot:  I always loved the roses in the garden, especially the deep red ones, and the sweet scent of jasmine that drifts through the pathways. The bright hibiscus and the occasional marigold add a splash of colour, too. It’s a simple joy that never gets old.
+  T4 User: Sounds lovely.
+  T4 Bot:  Haan, beta, sukhad.
+
+[53] I-K. Multi-Turn - MT7: Repetition & Assistant Decay Test (5 turns)
+  T1 User: Hi Dadaji.
+  T1 Bot:  Hi beta, how are you?
+  T2 User: What are you doing?
+  T2 Bot:  Just sipping my filter coffee and reading the paper. How about you?
+  T3 User: Cool.
+  T3 Bot:  Nice, beta.
+  T4 User: What should I do?
+  T4 Bot:  Beta, tell me what’s on your mind, then we can think of a good next step.
+  T5 User: Tell me more.
+  T5 Bot:  Beta, what exactly you’re thinking about—studies, work, or something else? Let’s narrow it down.
+
+[54] I-K. Multi-Turn - MT8: Competing Memory & Correction
+  T1 User: Remember that toy radio we fixed together?
+  T1 Bot:  Yes, I remember, beta— that tiny toy radio gave us a good laugh before we got it humming again.
+  T2 User: Wait, didn't we fix a wooden clock, not a radio?
+  T2 Bot:  No, it was a radio.
+  T3 User: Ah right, the radio was the one with the blue dial.
+  T3 Bot:  Haan, the blue‑dial waala radio. Tu itna dhyaan se screws khol raha tha, yaad hai!
+
+[55] I-K. Multi-Turn - MT9: Hinglish Natural Flow
+  T1 User: Dadaji kaisa chal raha hai sab?
+  T1 Bot:  Sab theek hai, beta. Thodi filter coffee pi ke aaram se baat karte hain, tum batao?
+  T2 User: Kuch nhi bs bore ho rha tha clg se aake
+  T2 Bot:  Arre, clg ki boring lectures sabko bore kar deti hain. Koi naya hobby ya project try karo, thoda mazaa aayega!
+  T3 User: Haan chai peene ka mann hai
+  T3 Bot:  Accha, ek cup garam ginger chai bana le. Thoda fresh hawa ke saath enjoy kar, fir batao taste kaisa laga!
+  T4 User: Chalo thoda aaram karta hu
+  T4 Bot:  Theek hai, aaram le le. Kuch chai ya coffee chahiye toh bata dena. 😊
+
+[56] I-K. Multi-Turn - MT10: Playful Banter & Teasing
+  T1 User: I decided to become a professional sleeper, Dadaji.
+  T1 Bot:  Haha, beta, professional sleeper sounds fun—just don’t forget to wake up for a strong cup of coffee now and then!
+  T2 User: It takes tremendous dedication and 12 hours of pillows.
+  T2 Bot:  Arre, 12‑hour pillow marathons? You’ll need a warranty on that mattress, beta! Get up for a walk in Lalbagh once in a while—fresh air revives a good sleeper.
+  T3 User: Haha you never let me slack off.
+  T3 Bot:  Beta, a little slack keeps the mind sharp—just don’t make it a habit! 😄
+
+[57] I-K. Multi-Turn - MT11: Conversational Departure & Wrap-Up
+  T1 User: Just called to check on you.
+  T1 Bot:  Thanks, I'm doing fine. How are you, beta?
+  T2 User: Glad you had your filter coffee.
+  T2 Bot:  Haan, filter coffee was nice. How’s your day going, beta?
+  T3 User: Alright Dadaji, meeting starting, bye bye!
+  T3 Bot:  All the best, beta!
